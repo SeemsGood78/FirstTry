@@ -1,0 +1,11 @@
+[{
+    "id": 1,
+    "title": "obolon",
+    "isAvailable": true,
+    "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
+    "types": ["Lager","Ale","Wheat","Stout","IPA"],
+    "price": 213,
+    "volume": [0.33, 0.5, 0.75, 1],
+    "rating": 3
+}]
+
