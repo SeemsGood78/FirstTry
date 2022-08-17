@@ -3,7 +3,6 @@ import ContentBlock from "./ContentBlock";
 import SideMenu from "./SideMenu";
 
 const Content = () => {
-
     return (
         <div>
             <div className="container">

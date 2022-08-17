@@ -246,7 +246,7 @@ const ContentBlock = () => {
                     <div className="right-block-grid-item">
                         <div className="right-block-grid-item-img">
                             <a href="#">
-                                <img src="https://photos.app.goo.gl/gw8R7avU34WRNDMXA" alt="" />
+                                <img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/style/im/photo_2022-05-05_19-36-55.jpghttps://raw.githubusercontent.com/SeemsGood78/FirstTry/main/style/im/photo_2022-05-05_19-36-55.jpg" alt="" />
                             </a>
                         </div>
                         <div className="right-block-grid-item-text">
