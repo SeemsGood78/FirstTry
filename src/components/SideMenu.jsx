@@ -19,19 +19,19 @@ const SideMenu = () => {
                         </div>
                         <div className="content-leftblock-Filter-price-el">
                             <p>
-                                <label for="price-100">0 - 100</label>
+                                <label htmlFor="price-100">0 - 100</label>
                             </p>
                             <span>5</span>
                         </div>
                         <div className="content-leftblock-Filter-price-el">
                             <p>
-                                <label for="price-100,200">100 - 200</label>
+                                <label htmlFor="price-100,200">100 - 200</label>
                             </p>
                             <span>1</span>
                         </div>
                         <div className="content-leftblock-Filter-price-el">
                             <p>
-                                <label for="price-200">200 и больше</label>
+                                <label htmlFor="price-200">200 и больше</label>
                             </p>
                             <span>1</span>
                         </div>
@@ -45,7 +45,7 @@ const SideMenu = () => {
                     <div className="content-leftblock-Filter-box">
                         <p className="chebox">
                             <input type="checkbox" id="42" />
-                            <label for="42">Пшеничное</label>
+                            <label htmlFor="42">Пшеничное</label>
                         </p>
                         <span>7</span>
                     </div>
@@ -58,7 +58,7 @@ const SideMenu = () => {
                     <div className="content-leftblock-Filter-box">
                         <p className="chebox">
                             <input type="checkbox" id="42" />
-                            <label for="42">Baladin</label>
+                            <label htmlFor="42">Baladin</label>
                         </p>
                         <span>7</span>
                     </div>
@@ -71,14 +71,14 @@ const SideMenu = () => {
                     <div className="content-leftblock-Filter-box">
                         <p className="chebox">
                             <input type="checkbox" id="42" />
-                            <label for="42">Италия</label>
+                            <label htmlFor="42">Италия</label>
                         </p>
                         <span>2</span>
                     </div>
                     <div className="content-leftblock-Filter-box">
                         <p className="chebox">
                             <input type="checkbox" id="42" />
-                            <label for="42">Германия</label>
+                            <label htmlFor="42">Германия</label>
                         </p>
                         <span>5</span>
                     </div>
@@ -92,21 +92,21 @@ const SideMenu = () => {
                     <div className="content-leftblock-Filter-box">
                         <p className="chebox">
                             <input type="checkbox" id="42" />
-                            <label for="42">0.33</label>
+                            <label htmlFor="42">0.33</label>
                         </p>
                         <span>1</span>
                     </div>
                     <div className="content-leftblock-Filter-box">
                         <p className="chebox">
                             <input type="checkbox" id="42" />
-                            <label for="42">0.5</label>
+                            <label htmlFor="42">0.5</label>
                         </p>
                         <span>5</span>
                     </div>
                     <div className="content-leftblock-Filter-box">
                         <p className="chebox">
                             <input type="checkbox" id="42" />
-                            <label for="42">0.75</label>
+                            <label htmlFor="42">0.75</label>
                         </p>
                         <span>1</span>
                     </div>

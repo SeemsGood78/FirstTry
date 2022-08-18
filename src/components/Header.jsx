@@ -7,7 +7,7 @@ const Header = () => {
                 <div className="top-bannerbg">
                     <div className="container">
                         <div className="top-banner">
-                            <div className="top-banner-logo"></div>
+                            <div className="top-banner-logo">Pivoslav</div>
                             <form className="top-banner-search">
                                 <input type="text" placeholder="Zalupa" />
                                 <button></button>
