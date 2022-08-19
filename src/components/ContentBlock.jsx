@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ContentItem from "./ContentItem";
 
 const ContentBlock = () => {
+    const [items, setItems] = useState([])
+
+    useEffect(() => {
+        fetch('https://62fe842e41165d66bfc1aab6.mockapi.io/Items')
+            .then(res => res.json())
+            .then(data => {
+                setItems(data)
+                console.log('render')
+            })
+    }, [])
+
+    // array of types
+
+
+
     return (
         <>
             <div className="right-block">
-                <div className="right-block-titleBar">
+                {/* <div className="right-block-titleBar">
                     <div>
                         <h1>Пшеничное пиво</h1>
                     </div>
@@ -31,248 +47,11 @@ const ContentBlock = () => {
                             </ul>
                         </li>
                     </ul>
-                </div>
+                </div> */}
                 <div className="right-block-grid">
-                    <div className="right-block-grid-item">
-                        <div className="right-block-grid-item-img">
-                            <a href="#">
-                                <img src="./style/im/16.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div className="right-block-grid-item-text">
-                            <a href="#" className="title">
-                                <span>Isaac</span>
-                                <p>0.75 л
-                                    <span>Aрт. 31863</span>
-                                </p>
-                            </a>
-                            <span>
-                                <img src="./style/im/16.jpg" alt="" />
-                                <a href="#">Италия</a>
-                                <a href="#">/Baladin</a>
-                            </span>
-                        </div>
-                        <div className="right-block-grid-item-price">
-                            <div>
-                                <p>Цена за 1 шт</p>
-                                <div>
-                                    249
-                                    <sup>грн</sup>
-                                </div>
-                            </div>
-                            <input type="button" value="+ В корзину " />
-                        </div>
-                    </div>
-                    <div className="right-block-grid-item">
-                        <div className="right-block-grid-item-img">
-                            <a href="#">
-                                <img src="./style/im/16.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div className="right-block-grid-item-text">
-                            <a href="#" className="title">
-                                <span>Isaac</span>
-                                <p>0.75 л
-                                    <span>Aрт. 31863</span>
-                                </p>
-                            </a>
-                            <span>
-                                <img src="./style/im/16.jpg" alt="" />
-                                <a href="#">Италия</a>
-                                <a href="#">/Baladin</a>
-                            </span>
-                        </div>
-                        <div className="right-block-grid-item-price">
-                            <div>
-                                <p>Цена за 1 шт</p>
-                                <div>
-                                    249
-                                    <sup>грн</sup>
-                                </div>
-                            </div>
-                            <input type="button" value="+ В корзину " />
-                        </div>
-                    </div>
-                    <div className="right-block-grid-item">
-                        <div className="right-block-grid-item-img">
-                            <a href="#">
-                                <img src="./style/im/16.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div className="right-block-grid-item-text">
-                            <a href="#" className="title">
-                                <span>Isaac</span>
-                                <p>0.75 л
-                                    <span>Aрт. 31863</span>
-                                </p>
-                            </a>
-                            <span>
-                                <img src="./style/im/16.jpg" alt="" />
-                                <a href="#">Италия</a>
-                                <a href="#">/Baladin</a>
-                            </span>
-                        </div>
-                        <div className="right-block-grid-item-price">
-                            <div>
-                                <p>Цена за 1 шт</p>
-                                <div>
-                                    249
-                                    <sup>грн</sup>
-                                </div>
-                            </div>
-                            <input type="button" value="+ В корзину " />
-                        </div>
-                    </div>
-                    <div className="right-block-grid-item">
-                        <div className="right-block-grid-item-img">
-                            <a href="#">
-                                <img src="./style/im/16.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div className="right-block-grid-item-text">
-                            <a href="#" className="title">
-                                <span>Isaac</span>
-                                <p>0.75 л
-                                    <span>Aрт. 31863</span>
-                                </p>
-                            </a>
-                            <span>
-                                <img src="./style/im/16.jpg" alt="" />
-                                <a href="#">Италия</a>
-                                <a href="#">/Baladin</a>
-                            </span>
-                        </div>
-                        <div className="right-block-grid-item-price">
-                            <div>
-                                <p>Цена за 1 шт</p>
-                                <div>
-                                    249
-                                    <sup>грн</sup>
-                                </div>
-                            </div>
-                            <input type="button" value="+ В корзину " />
-                        </div>
-                    </div>
-                    <div className="right-block-grid-item">
-                        <div className="right-block-grid-item-img">
-                            <a href="#">
-                                <img src="./style/im/16.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div className="right-block-grid-item-text">
-                            <a href="#" className="title">
-                                <span>Isaac</span>
-                                <p>0.75 л
-                                    <span>Aрт. 31863</span>
-                                </p>
-                            </a>
-                            <span>
-                                <img src="./style/im/16.jpg" alt="" />
-                                <a href="#">Италия</a>
-                                <a href="#">/Baladin</a>
-                            </span>
-                        </div>
-                        <div className="right-block-grid-item-price">
-                            <div>
-                                <p>Цена за 1 шт</p>
-                                <div>
-                                    249
-                                    <sup>грн</sup>
-                                </div>
-                            </div>
-                            <input type="button" value="+ В корзину " />
-                        </div>
-                    </div>
-                    <div className="right-block-grid-item">
-                        <div className="right-block-grid-item-img">
-                            <a href="#">
-                                <img src="./style/im/16.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div className="right-block-grid-item-text">
-                            <a href="#" className="title">
-                                <span>Isaac</span>
-                                <p>0.75 л
-                                    <span>Aрт. 31863</span>
-                                </p>
-                            </a>
-                            <span>
-                                <img src="./style/im/16.jpg" alt="" />
-                                <a href="#">Италия</a>
-                                <a href="#">/Baladin</a>
-                            </span>
-                        </div>
-                        <div className="right-block-grid-item-price">
-                            <div>
-                                <p>Цена за 1 шт</p>
-                                <div>
-                                    249
-                                    <sup>грн</sup>
-                                </div>
-                            </div>
-                            <input type="button" value="+ В корзину " />
-                        </div>
-                    </div>
-                    <div className="right-block-grid-item">
-                        <div className="right-block-grid-item-img">
-                            <a href="#">
-                                <img src="./style/im/16.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div className="right-block-grid-item-text">
-                            <a href="#" className="title">
-                                <span>Isaac</span>
-                                <p>0.75 л
-                                    <span>Aрт. 31863</span>
-                                </p>
-                            </a>
-                            <span>
-                                <img src="./style/im/16.jpg" alt="" />
-                                <a href="#">Италия</a>
-                                <a href="#">/Baladin</a>
-                            </span>
-                        </div>
-                        <div className="right-block-grid-item-price">
-                            <div>
-                                <p>Цена за 1 шт</p>
-                                <div>
-                                    249
-                                    <sup>грн</sup>
-                                </div>
-                            </div>
-                            <input type="button" value="+ В корзину " />
-                        </div>
-                    </div>
-                    <div className="right-block-grid-item">
-                        <div className="right-block-grid-item-img">
-                            <a href="#">
-                                <img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/style/im/photo_2022-05-05_19-36-55.jpghttps://raw.githubusercontent.com/SeemsGood78/FirstTry/main/style/im/photo_2022-05-05_19-36-55.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div className="right-block-grid-item-text">
-                            <a href="#" className="title">
-                                <span>Isaac</span>
-                                <p>0.75 л
-                                    <span>Aрт. 31863</span>
-                                </p>
-                            </a>
-                            <span>
-                                <img src="./style/im/16.jpg" alt="" />
-                                <a href="#">Италия</a>
-                                <a href="#">/Baladin</a>
-                            </span>
-                        </div>
-                        <div className="right-block-grid-item-price">
-                            <div>
-                                <p>Цена за 1 шт</p>
-                                <div>
-                                    249
-                                    <sup>грн</sup>
-                                </div>
-                            </div>
-                            <input type="button" value="+ В корзину " />
-                        </div>
-                    </div>
+                    {items.map(item => (
+                        <ContentItem item={item} />
+                    ))}
                 </div>
             </div>
         </>

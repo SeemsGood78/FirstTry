@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+
 
 const Header = () => {
+    const [searchValue, setSearhcValue] = useState('')
+
     return (
         <div>
             <header>
@@ -8,10 +11,14 @@ const Header = () => {
                     <div className="container">
                         <div className="top-banner">
                             <div className="top-banner-logo">Pivoslav</div>
-                            <form className="top-banner-search">
-                                <input type="text" placeholder="Zalupa" />
-                                <button></button>
-                            </form>
+                            <div className="top-banner-search">
+                                <input
+                                    value={searchValue}
+                                    onChange={e=> setSearhcValue(e.target.value)}
+                                    type="text"
+                                    placeholder="Zalupa" />
+                                <button style={{ color: 'white' }}>Button</button>
+                            </div>
                             <div className="top-banner-cab">
                                 <p><a href="#">jopa 2</a> | <a href="#">zalupa</a></p>
                                 <span>Kab</span>

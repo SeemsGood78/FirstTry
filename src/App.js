@@ -14,7 +14,7 @@ const App = () => {
       <Categories />
       <Content />
       <Footer />
-      <Cart />
+      {/* <Cart /> */}
     </div>  
   );
 }
