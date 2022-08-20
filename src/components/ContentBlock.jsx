@@ -1,19 +1,28 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ContentItem from "./ContentItem";
 
-const ContentBlock = () => {
+const ContentBlock = ({searchValue}) => {
     const [items, setItems] = useState([])
+    const [types, setTypes] = useState([])
 
+    console.log(searchValue)
     useEffect(() => {
-        fetch('https://62fe842e41165d66bfc1aab6.mockapi.io/Items')
-            .then(res => res.json())
-            .then(data => {
-                setItems(data)
-                console.log('render')
+        axios.get('https://62fe842e41165d66bfc1aab6.mockapi.io/Items')
+            .then(res => setItems(res.data))
+            .catch(err => {
+                console.error(err)
             })
+        // .finally(
+        //     setTypes(items.reduce((acc, item) => {
+        //         if (!acc.includes(item.type)) {
+        //             acc.push(item.type)
+        //             console.log('push')
+        //         }
+        //     }, []))
+        // ) 
     }, [])
-
-    // array of types
+    // console.log('types:', types)
 
 
 
@@ -49,8 +58,12 @@ const ContentBlock = () => {
                     </ul>
                 </div> */}
                 <div className="right-block-grid">
-                    {items.map(item => (
-                        <ContentItem item={item} />
+                    {items
+                    .filter(item => (
+                        item.title.toLowerCase().includes(searchValue.toLowerCase())
+                    ))
+                    .map((item, idx) => (
+                        <ContentItem key={idx} item={item} />
                     ))}
                 </div>
             </div>

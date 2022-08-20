@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
-
-const Header = () => {
-    const [searchValue, setSearhcValue] = useState('')
+const Header = ({searchValue, setSearhcValue}) => {
+    // сделать крестик, позволяющий оччистить поле ввода
+    // записывать searchValue при нажатии на кнопку, а не при изменении значения
+    // *сделать на энтер
 
     return (
         <div>
@@ -10,24 +12,29 @@ const Header = () => {
                 <div className="top-bannerbg">
                     <div className="container">
                         <div className="top-banner">
-                            <div className="top-banner-logo">Pivoslav</div>
+                            {/* //////////////////////////////////////////////////////// */}
+                            <div className="top-banner-logo" >
+                                <Link to="/" style={{color:'white', fontSize:'30px'}}>
+                                    Pivoslav
+                                </Link>
+                            </div>
                             <div className="top-banner-search">
                                 <input
                                     value={searchValue}
-                                    onChange={e=> setSearhcValue(e.target.value)}
+                                    onChange={e => setSearhcValue(e.target.value)}
                                     type="text"
-                                    placeholder="Zalupa" />
+                                    placeholder="Search..." />
                                 <button style={{ color: 'white' }}>Button</button>
                             </div>
                             <div className="top-banner-cab">
-                                <p><a href="#">jopa 2</a> | <a href="#">zalupa</a></p>
+                                <p><a href="#">Log in</a> | <a href="#">Sign up</a></p>
                                 <span>Kab</span>
                             </div>
                             <div className="top-banner-cart">
-                                <a href="#">
+                                <Link to={'/cart'}>
                                     <span>Корзина: 0</span>
                                     <p>000</p>
-                                </a>
+                                </Link>
                             </div>
                             <div className="top-banner-contacts">
                                 <p>Интернет-магазин</p>
