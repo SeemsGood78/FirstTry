@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = ({searchValue, setSearhcValue}) => {
-    // сделать крестик, позволяющий оччистить поле ввода
-    // записывать searchValue при нажатии на кнопку, а не при изменении значения
-    // *сделать на энтер
+const Header = ({ searchValue, setSearhcValue }) => {
+    const [headerSearch, setHeaderSearch] = useState('')
+
+    const handleClick = (e) => {
+        if (e.keyCode === 13) {
+            setSearhcValue(headerSearch)
+        }
+    }
+
+    const clearInput = () => {
+        setSearhcValue('')
+        setHeaderSearch('')
+    }
 
     return (
         <div>
@@ -12,20 +21,21 @@ const Header = ({searchValue, setSearhcValue}) => {
                 <div className="top-bannerbg">
                     <div className="container">
                         <div className="top-banner">
-                            {/* //////////////////////////////////////////////////////// */}
                             <div className="top-banner-logo" >
-                                <Link to="/" style={{color:'white', fontSize:'30px'}}>
+                                <Link to="/" style={{ color: 'white', fontSize: '30px' }}>
                                     Pivoslav
                                 </Link>
                             </div>
                             <div className="top-banner-search">
                                 <input
-                                    value={searchValue}
-                                    onChange={e => setSearhcValue(e.target.value)}
+                                    value={headerSearch}
+                                    onChange={e => setHeaderSearch(e.target.value)}
+                                    onKeyUp={e => handleClick(e)}
                                     type="text"
                                     placeholder="Search..." />
-                                <button style={{ color: 'white' }}>Button</button>
+                                <span onClick={() => clearInput()}>x</span>
                             </div>
+                            <button onClick={() => setSearhcValue(headerSearch)} style={{ color: 'white' }}>Button</button>
                             <div className="top-banner-cab">
                                 <p><a href="#">Log in</a> | <a href="#">Sign up</a></p>
                                 <span>Kab</span>

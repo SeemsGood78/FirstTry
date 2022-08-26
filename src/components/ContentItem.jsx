@@ -8,6 +8,7 @@ const ContentItem = ({item}) => {
                     <img src={item.imageUrl} alt="" />
                 </a>
             </div>
+            {/* rework flag  */}
             <div className="right-block-grid-item-text">
                 <a href="#" className="title">
                     <span>{item.title}</span>
@@ -16,8 +17,7 @@ const ContentItem = ({item}) => {
                 </a>
                 <span>
                     <img src="./style/im/16.jpg" alt="" />
-                    <a href="#">Италия</a>
-                    <a href="#">/Baladin</a>
+                    <a href="#">{item.type}</a>
                 </span>
             </div>
             <div className="right-block-grid-item-price">
@@ -28,6 +28,7 @@ const ContentItem = ({item}) => {
                         <sup>грн</sup>
                     </div>
                 </div>
+                {/* button */}
                 <input type="button" value="+ В корзину " />
             </div>
         </div>

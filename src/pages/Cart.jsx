@@ -51,7 +51,7 @@ const Cart = () => {
                             <div className="cart-leftblock-item-namecol">
                                 <div className="cart-leftblock-item-namecol-img">
                                     <a href="#">
-                                        <img src="" alt="" />
+                                        <img src='../assets/img/Ale/Amber.png' alt="" />
                                     </a>
                                 </div>
                                 <div className="cart-leftblock-item-namecol-text">
