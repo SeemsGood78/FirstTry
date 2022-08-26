@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SideMenu = () => {
+    const [isShown, setIsShown] = useState(true)
+    // smooth scroll hiding
+    // затенение карточки товара
+
     return (
         <>
             <div className="content-leftblock">
@@ -37,79 +41,40 @@ const SideMenu = () => {
                         </div>
                     </div>
                 </div>
-                <div className="content-leftblock-Filter">
-                    <span>Тип
-                        <i className="hidefilter">
-                        </i>
-                    </span>
-                    <div className="content-leftblock-Filter-box">
-                        <p className="chebox">
-                            <input type="checkbox" id="42" />
-                            <label htmlFor="42">Пшеничное</label>
-                        </p>
-                        <span>7</span>
-                    </div>
-                </div>
-                <div className="content-leftblock-Filter">
-                    <span>Пивоварня
-                        <i className="hidefilter">
-                        </i>
-                    </span>
-                    <div className="content-leftblock-Filter-box">
-                        <p className="chebox">
-                            <input type="checkbox" id="42" />
-                            <label htmlFor="42">Baladin</label>
-                        </p>
-                        <span>7</span>
-                    </div>
-                </div>
-                <div className="content-leftblock-Filter">
-                    <span>Страна
-                        <i className="hidefilter">
-                        </i>
-                    </span>
-                    <div className="content-leftblock-Filter-box">
-                        <p className="chebox">
-                            <input type="checkbox" id="42" />
-                            <label htmlFor="42">Италия</label>
-                        </p>
-                        <span>2</span>
-                    </div>
-                    <div className="content-leftblock-Filter-box">
-                        <p className="chebox">
-                            <input type="checkbox" id="42" />
-                            <label htmlFor="42">Германия</label>
-                        </p>
-                        <span>5</span>
-                    </div>
 
-                </div>
                 <div className="content-leftblock-Filter">
                     <span>Емкость
-                        <i className="hidefilter">
+                        <i onClick={() => setIsShown(!isShown)} className="hidefilter">
                         </i>
                     </span>
-                    <div className="content-leftblock-Filter-box">
-                        <p className="chebox">
-                            <input type="checkbox" id="42" />
-                            <label htmlFor="42">0.33</label>
-                        </p>
-                        <span>1</span>
-                    </div>
-                    <div className="content-leftblock-Filter-box">
-                        <p className="chebox">
-                            <input type="checkbox" id="42" />
-                            <label htmlFor="42">0.5</label>
-                        </p>
-                        <span>5</span>
-                    </div>
-                    <div className="content-leftblock-Filter-box">
-                        <p className="chebox">
-                            <input type="checkbox" id="42" />
-                            <label htmlFor="42">0.75</label>
-                        </p>
-                        <span>1</span>
-                    </div>
+                    {isShown
+                        ?
+                        <>
+                            <div className="content-leftblock-Filter-box">
+                                <p className="chebox">
+                                    <input type="checkbox" id="42" />
+                                    <label htmlFor="42">0.33</label>
+                                </p>
+                                <span>1</span>
+                            </div>
+                            <div className="content-leftblock-Filter-box">
+                                <p className="chebox">
+                                    <input type="checkbox" id="42" />
+                                    <label htmlFor="42">0.5</label>
+                                </p>
+                                <span>5</span>
+                            </div>
+                            <div className="content-leftblock-Filter-box">
+                                <p className="chebox">
+                                    <input type="checkbox" id="42" />
+                                    <label htmlFor="42">0.75</label>
+                                </p>
+                                <span>1</span>
+                            </div>
+                        </>
+                        :
+                        <></>
+                    }
                 </div>
             </div>
         </>

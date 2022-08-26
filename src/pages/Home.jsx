@@ -6,7 +6,7 @@ import Categories from "../components/Categories"
 
 const Home = ({ searchValue }) => {
     const [categoryId, setCategoryId] = useState(0)
-
+    
     return (
         <div>
             <div className="container">
