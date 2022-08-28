@@ -30,7 +30,7 @@ li {
 }
 
 .top-bannerbg {
-    height: 72px;
+    min-height: 72px;
     background: $bldar;
 }
 
@@ -39,7 +39,16 @@ li {
     display: flex;
     align-items: center;
     padding: 10px;
-    height: 72px;
+    min-height: 72px;
+
+    @media (max-width:1280px) {
+        flex-wrap: wrap;
+
+        .top-banner-search{
+            order: 3;
+            margin: auto;
+        }
+    }
 
     &-logo {
         font-size: 30px;

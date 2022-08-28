@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
+const sortList = ['name', 'rating', 'price']
 
 const Categories = ({ categoryId, setCategoryId }) => {
+    const [currentIndex, setCurrentIndex] = useState(0)
 
     return (
         <div>
@@ -20,11 +22,17 @@ const Categories = ({ categoryId, setCategoryId }) => {
                         ))}
                     </ul>
                     <div className="dropdown">
-                        <button className="dropbtn">Text sample</button>
+                        <button className="dropbtn">{sortList[currentIndex]}</button>
                         <div className="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            {
+                                sortList.map((item, idx) => (
+                                    <a
+                                        key={idx}
+                                        href="#"
+                                        onClick={() => setCurrentIndex(idx)}
+                                    >{item}</a>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
