@@ -2,12 +2,12 @@ import React from "react";
 
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
 
-const Categories = ({categoryId, setCategoryId}) => {
-    
+const Categories = ({ categoryId, setCategoryId }) => {
+
     return (
         <div>
             <div className="bottom-banner">
-                <div className="container">
+                <div className="container flexb">
                     <ul>
                         {categories.map((category, idx) => (
                             <li
@@ -19,6 +19,14 @@ const Categories = ({categoryId, setCategoryId}) => {
                             </li>
                         ))}
                     </ul>
+                    <div className="dropdown">
+                        <button className="dropbtn">Text sample</button>
+                        <div className="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -34,8 +34,8 @@ const Header = ({ searchValue, setSearhcValue }) => {
                                     type="text"
                                     placeholder="Search..." />
                                 <span onClick={() => clearInput()}>x</span>
+                                <button onClick={() => setSearhcValue(headerSearch)} style={{ color: 'white' }}>Confirm</button>
                             </div>
-                            <button onClick={() => setSearhcValue(headerSearch)} style={{ color: 'white' }}>Button</button>
                             <div className="top-banner-cab">
                                 <p><a href="#">Log in</a> | <a href="#">Sign up</a></p>
                                 <span>Kab</span>

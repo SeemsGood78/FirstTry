@@ -55,13 +55,13 @@ li {
         border: none;
         position: relative;
 
-        
-// rework
-        &>span{
+
+        // rework
+        &>span {
             position: absolute;
             cursor: pointer;
             margin: auto;
-            right: 0px;    
+            right: 80px;
             padding: 10px;
             font-size: 18px;
             font-weight: 600;
@@ -69,7 +69,7 @@ li {
             transition: .3s;
 
         }
-        
+
         &::before {
             content: "";
             display: inline-block;
@@ -81,7 +81,7 @@ li {
         }
 
         &>input {
-            max-width: 625px;
+            max-width: 600px;
             width: 100%;
             height: 35px;
             padding: 10px 15px;
@@ -100,10 +100,12 @@ li {
 
         &>button {
             height: 35px;
-            width: 40px;
             background: url("../assets/img/Ale/Amber.png");
-            border: none;
+            border: 1px solid $whit;
             cursor: pointer;
+            padding: 10px;
+            width: 80px;
+            font-weight: 600;
         }
     }
 
@@ -190,13 +192,13 @@ li {
         cursor: pointer;
         transition: .3s;
 
-        &.active{
-            color:$whit;
+        &.active {
+            color: $whit;
             background: black;
         }
 
-        &:hover{
-            color:$whit;
+        &:hover {
+            color: $whit;
             background: black;
         }
     }
@@ -433,7 +435,6 @@ li.withInnerMenu>a::after {
                     padding-top: 7px;
 
                     &>span {
-                        padding-left: 2px;
                         display: block;
                         margin-bottom: 4px;
                         white-space: nowrap;
@@ -444,7 +445,7 @@ li.withInnerMenu>a::after {
                             font-size: 14px;
                             font-weight: 300;
 
-                            
+
                             &:hover {
                                 color: $dargrey;
                             }
@@ -491,8 +492,8 @@ li.withInnerMenu>a::after {
                     text-align: center;
                     margin: auto;
                     // width = img width
-                    width: 35%;
-                    
+                    height: 245px;
+
 
                     &>a {
                         width: 100%;
@@ -500,8 +501,9 @@ li.withInnerMenu>a::after {
                         display: inline-block;
 
                         &>img {
-                            height: 245px;
-                            width: 106px;
+                            max-width: 100%;
+                            max-height: 100%;
+                            min-width: 85px;
                             // width = img width
                         }
                     }
@@ -586,20 +588,20 @@ li.withInnerMenu>a::after {
             margin-bottom: 10px;
             color: $lgray;
 
-            &>span{
+            &>span {
                 font-size: 14px;
                 margin-bottom: 3px;
             }
 
-            &>p{
+            &>p {
                 font-size: 17px;
-                color:$whit;
-                font-family: 'proxima-nova',sans-serif;
+                color: $whit;
+                font-family: 'proxima-nova', sans-serif;
                 font-weight: 100;
             }
         }
 
-        &>p>a>img{
+        &>p>a>img {
             border: 0;
             display: inline-block;
             vertical-align: middle;
@@ -612,7 +614,7 @@ li.withInnerMenu>a::after {
             display: block;
             font-size: 14px;
             text-transform: uppercase;
-            color:$whit;
+            color: $whit;
             padding-bottom: 15px;
             border-bottom: 1px solid $lgblue;
             margin-bottom: 15px;
@@ -630,7 +632,7 @@ li.withInnerMenu>a::after {
                 display: block;
                 font-size: 14px;
                 text-transform: uppercase;
-                color:$whit;
+                color: $whit;
                 padding-bottom: 15px;
                 border-bottom: 1px solid $lgblue;
                 margin-bottom: 15px;
@@ -650,7 +652,7 @@ li.withInnerMenu>a::after {
                     font-size: 14px;
 
                     &:hover {
-                        color:$whit;
+                        color: $whit;
                     }
                 }
             }
@@ -712,7 +714,7 @@ label[class=checked] {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 5px;
-    background:$whit;
+    background: $whit;
     border: 1px solid rgba(44, 44, 44, .07);
     text-align: left;
     z-index: 99;
@@ -1189,19 +1191,67 @@ label[class=checked] {
     }
 }
 
+.dropbtn {
+    background-color: $whit;
+    color: $bl;
+    padding: 6px 10px;
+    font-size: 16px;
+    border: 1px solid $bl;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    height: 40px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    background-color: $whit;
+    border: 1px solid $bl;
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: $bl;
+    color: $whit;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: $bl;
+    color: $whit;
+}
+
+
 .idk {
     font-size: 10px;
     margin-left: 2px;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown:hover .change {
-    border-color: transparent transparent $lgray transparent;
-    border-width: 0px 5px 5px 4px;
-    top: -3px;
+.flexb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 footer {
