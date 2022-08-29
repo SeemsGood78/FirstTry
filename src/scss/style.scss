@@ -471,11 +471,7 @@ li.withInnerMenu>a::after {
                         margin-bottom: 3px;
                         margin-top: 18px;
                         display: block;
-                        color: $bldar;
-
-                        &:hover {
-                            color: $gra;
-                        }
+                        color: $bldar;    
 
                         &>span {
                             font-size: 18px;
@@ -1210,6 +1206,7 @@ label[class=checked] {
     border-radius: 8px;
     transition: 0.3s;
     height: 40px;
+    width: 60px;
 }
 
 .dropdown {
@@ -1224,6 +1221,7 @@ label[class=checked] {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    right: 0;
 }
 
 .dropdown-content a {
@@ -1264,8 +1262,17 @@ label[class=checked] {
 }
 
 footer {
+    
     margin-top: 100px;
     background-color: $bldar;
     padding-top: 45px;
     font-weight: 300;
 }
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }

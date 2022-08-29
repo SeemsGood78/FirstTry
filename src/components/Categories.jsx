@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
 const sortList = ['name', 'rating', 'price']
 
-const Categories = ({ categoryId, setCategoryId }) => {
-    const [currentIndex, setCurrentIndex] = useState(0)
+const Categories = ({ categoryId, setCategoryId ,sortId ,setSortId}) => {
+    
 
     return (
         <div>
@@ -22,14 +22,14 @@ const Categories = ({ categoryId, setCategoryId }) => {
                         ))}
                     </ul>
                     <div className="dropdown">
-                        <button className="dropbtn">{sortList[currentIndex]}</button>
+                        <button className="dropbtn">{sortList[sortId]}</button>
                         <div className="dropdown-content">
                             {
                                 sortList.map((item, idx) => (
                                     <a
                                         key={idx}
                                         href="#"
-                                        onClick={() => setCurrentIndex(idx)}
+                                        onClick={() => setSortId(idx)}
                                     >{item}</a>
                                 ))
                             }

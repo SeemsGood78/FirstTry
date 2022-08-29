@@ -7,12 +7,10 @@ import ContentItem from "./ContentItem";
 import Skeleton from "./Skeleton";
 
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
-// sortList = ...
-// svg in search
-// продублировать на мокапи все товары и не забыть помять id
-// убрать хавер еффекты на заголовке
+const sortList = ['title', 'rating', 'price']
 
-const ContentBlock = ({ searchValue, categoryId }) => {
+
+const ContentBlock = ({ searchValue, categoryId, sortId}) => {
     const count = useSelector(state => state.testSlice.value)
     const dispatch = useDispatch()
     const [items, setItems] = useState([])
@@ -21,10 +19,9 @@ const ContentBlock = ({ searchValue, categoryId }) => {
     useEffect(() => {
         setIsLoading(true)
         const linkType = categoryId ? `type=${categories[categoryId]}` : ''
-        // const linkSort = наличие индекса ? `sortBy=${[имя/рейтинг/цена]}` : ''
+        const linkSort = `sortBy=${sortList[sortId]}`
 
-        axios.get(`https://62fe842e41165d66bfc1aab6.mockapi.io/Items?${linkType}`)
-            // https://62fe842e41165d66bfc1aab6.mockapi.io/Items?${linkType}&{linkSort}
+        axios.get(`https://62fe842e41165d66bfc1aab6.mockapi.io/Items?${linkType}&${linkSort}`)
             .then(res => {
                 setItems(res.data)
                 setIsLoading(false)
@@ -33,7 +30,7 @@ const ContentBlock = ({ searchValue, categoryId }) => {
                 alert('Something went wrong!')
                 console.error(err)
             })
-    }, [categoryId])
+    }, [categoryId,sortId])
 
 
     return (
