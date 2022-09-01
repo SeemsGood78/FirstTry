@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = ({ searchValue, setSearhcValue }) => {
+import { useDispatch } from 'react-redux'
+import { setSearchValue } from "../redux/slices/sortSlice";
+
+const Header = () => {
     const [headerSearch, setHeaderSearch] = useState('')
+    const dispatch = useDispatch()
 
     const handleClick = (e) => {
         if (e.keyCode === 13) {
-            setSearhcValue(headerSearch)
+            dispatch(setSearchValue(headerSearch))
         }
     }
 
     const clearInput = () => {
-        setSearhcValue('')
+        dispatch(setSearchValue(''))
         setHeaderSearch('')
     }
 
@@ -34,7 +38,7 @@ const Header = ({ searchValue, setSearhcValue }) => {
                                     type="text"
                                     placeholder="Search..." />
                                 <span  onClick={() => clearInput()}>x</span>  
-                                <button onClick={() => setSearhcValue(headerSearch)} style={{ color: 'white' }}>Confirm</button>
+                                <button onClick={() => dispatch(setSearchValue(headerSearch))} style={{ color: 'white' }}>Confirm</button>
                             </div>
                             <div className="top-banner-cab">
                                 <p><a href="#">Log in</a> | <a href="#">Sign up</a></p>

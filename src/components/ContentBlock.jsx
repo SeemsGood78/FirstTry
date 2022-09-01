@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from '../redux/slices/testSlice'
+import { useSelector } from 'react-redux'
 
 import ContentItem from "./ContentItem";
 import Skeleton from "./Skeleton";
@@ -10,11 +9,11 @@ const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
 const sortList = ['title', 'rating', 'price']
 
 
-const ContentBlock = ({ searchValue, categoryId, sortId}) => {
-    const count = useSelector(state => state.testSlice.value)
-    const dispatch = useDispatch()
+const ContentBlock = ({ categoryId, sortId}) => {
+    const searchValue = useSelector(state => state.sort.searchValue)
     const [items, setItems] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+
 
     useEffect(() => {
         setIsLoading(true)
@@ -36,23 +35,6 @@ const ContentBlock = ({ searchValue, categoryId, sortId}) => {
     return (
         <>
             <div className="right-block">
-                <div>
-                    <div>
-                        <button
-                            aria-label="Increment value"
-                            onClick={() => dispatch(increment())}
-                        >
-                            Increment
-                        </button>
-                        <span>{count}</span>
-                        <button
-                            aria-label="Decrement value"
-                            onClick={() => dispatch(decrement())}
-                        >
-                            Decrement
-                        </button>
-                    </div>
-                </div>
                 <div className="right-block-grid">
                     {isLoading
                         ?
