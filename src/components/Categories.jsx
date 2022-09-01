@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
 const sortList = ['name', 'rating', 'price']
 
-const Categories = ({ categoryId, setCategoryId ,sortId ,setSortId}) => {
-    
+const Categories = ({ categoryId, setCategoryId, sortId, setSortId }) => {
+
 
     return (
         <div>
