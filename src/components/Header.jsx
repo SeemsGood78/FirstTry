@@ -37,7 +37,7 @@ const Header = () => {
                                     onKeyUp={e => handleClick(e)}
                                     type="text"
                                     placeholder="Search..." />
-                                <span  onClick={() => clearInput()}>x</span>  
+                                <span  onClick={() => clearInput()}><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png"></img></span>  
                                 <button onClick={() => dispatch(setSearchValue(headerSearch))} style={{ color: 'white' }}>Confirm</button>
                             </div>
                             <div className="top-banner-cab">

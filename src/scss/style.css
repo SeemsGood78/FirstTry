@@ -29,7 +29,7 @@ li {
 }
 
 .top-bannerbg {
-  height: 72px;
+  min-height: 72px;
   background: #2a2731;
 }
 
@@ -38,7 +38,16 @@ li {
   display: flex;
   align-items: center;
   padding: 10px;
-  height: 72px;
+  min-height: 72px;
+}
+@media (max-width: 1280px) {
+  .top-banner {
+    flex-wrap: wrap;
+  }
+  .top-banner .top-banner-search {
+    order: 3;
+    margin: auto;
+  }
 }
 .top-banner-logo {
   font-size: 30px;
@@ -63,6 +72,11 @@ li {
   font-weight: 600;
   color: black;
   transition: 0.3s;
+}
+.top-banner-search > span > img {
+  margin-top: 7px;
+  height: 15px;
+  width: 15px;
 }
 .top-banner-search::before {
   content: "";
@@ -210,8 +224,8 @@ li.withInnerMenu > a::after {
 }
 .content-leftblock-Filter-box {
   position: relative;
-  padding-right: 30px;
   margin-bottom: 10px;
+  transition: 0.3s;
 }
 .content-leftblock-Filter-box > p {
   display: flex;
@@ -411,9 +425,6 @@ li.withInnerMenu > a::after {
   margin-top: 18px;
   display: block;
   color: #2a2731;
-}
-.content .right-block-grid-item-text > a[class=title]:hover {
-  color: #bbb9bf;
 }
 .content .right-block-grid-item-text > a[class=title] > span {
   font-size: 18px;
@@ -1005,19 +1016,26 @@ label[class=checked]::after {
 }
 
 .dropbtn {
-  background-color: #000;
-  color: white;
+  background-color: #fff;
+  color: #000;
   padding: 6px 10px;
   font-size: 16px;
   border: 1px solid #000;
   cursor: pointer;
   border-radius: 8px;
   transition: 0.3s;
+  height: 40px;
+  width: 60px;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+}
+.dropdown > span {
+  font-weight: 500;
+  font-size: 16px;
+  margin-right: 10px;
 }
 
 .dropdown-content {
@@ -1027,17 +1045,23 @@ label[class=checked]::after {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  right: 0;
 }
 
 .dropdown-content a {
   color: black;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 8px;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  transition: 0.3s;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #000;
+  color: #fff;
 }
 
 .dropdown:hover .dropdown-content {
@@ -1045,7 +1069,8 @@ label[class=checked]::after {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: #000;
+  color: #fff;
 }
 
 .idk {
@@ -1064,4 +1089,13 @@ footer {
   background-color: #2a2731;
   padding-top: 45px;
   font-weight: 300;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
 }/*# sourceMappingURL=style.css.map */

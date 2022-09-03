@@ -9,8 +9,9 @@ const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
 const sortList = ['title', 'rating', 'price']
 
 
-const ContentBlock = ({ categoryId, sortId}) => {
+const ContentBlock = ({sortId}) => {
     const searchValue = useSelector(state => state.sort.searchValue)
+    const categoryId = useSelector(state => state.sort.categoryId)
     const [items, setItems] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 

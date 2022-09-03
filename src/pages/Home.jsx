@@ -5,16 +5,15 @@ import SideMenu from "../components/SideMenu";
 import Categories from "../components/Categories"
 
 const Home = () => {
-    const [categoryId, setCategoryId] = useState(0)
     const [sortId, setSortId] = useState(0)
     
     return (
         <div>
             <div className="container">
-                <Categories categoryId={categoryId} setCategoryId={setCategoryId} sortId={sortId} setSortId={setSortId}/>
+                <Categories sortId={sortId} setSortId={setSortId}/>
                 <div className="content">
                     <SideMenu />
-                    <ContentBlock categoryId={categoryId}  sortId={sortId}/>
+                    <ContentBlock sortId={sortId}/>
                 </div>
             </div>
         </div>

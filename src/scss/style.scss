@@ -44,7 +44,7 @@ li {
     @media (max-width:1280px) {
         flex-wrap: wrap;
 
-        .top-banner-search{
+        .top-banner-search {
             order: 3;
             margin: auto;
         }
@@ -77,6 +77,12 @@ li {
             color: black;
             transition: .3s;
 
+            &>img {
+                margin-top: 7px;
+                height: 15px;
+                width: 15px;
+            }
+
         }
 
         &::before {
@@ -88,6 +94,7 @@ li {
             border-width: 4px 7px 4px 0;
             border-color: transparent $whit transparent transparent;
         }
+
 
         &>input {
             max-width: 600px;
@@ -245,8 +252,8 @@ li.withInnerMenu>a::after {
 
             &-box {
                 position: relative;
-                padding-right: 30px;
                 margin-bottom: 10px;
+                transition: 0.3s;
 
                 &>p {
                     display: flex;
@@ -471,7 +478,7 @@ li.withInnerMenu>a::after {
                         margin-bottom: 3px;
                         margin-top: 18px;
                         display: block;
-                        color: $bldar;    
+                        color: $bldar;
 
                         &>span {
                             font-size: 18px;
@@ -1212,6 +1219,12 @@ label[class=checked] {
 .dropdown {
     position: relative;
     display: inline-block;
+
+    &>span {
+        font-weight: 500;
+        font-size: 16px;
+        margin-right: 10px;
+    }
 }
 
 .dropdown-content {
@@ -1262,12 +1275,13 @@ label[class=checked] {
 }
 
 footer {
-    
+
     margin-top: 100px;
     background-color: $bldar;
     padding-top: 45px;
     font-weight: 300;
 }
+
 .icon {
     display: inline-block;
     width: 1em;
@@ -1275,4 +1289,15 @@ footer {
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
-  }
+}
+
+.notAvailable{
+    opacity: 0.5;
+    cursor: not-allowed ;
+    input{
+        cursor: not-allowed !important;
+    }
+    a{
+        cursor: not-allowed; 
+    }
+}

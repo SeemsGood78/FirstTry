@@ -2,7 +2,9 @@ import React from "react";
 
 const ContentItem = ({item}) => {
     return (
-        <div key={item.id} className="right-block-grid-item">
+        <div key={item.id} 
+            className={item.isAvailable? "right-block-grid-item" : "right-block-grid-item notAvailable"}
+        >
             <div className="right-block-grid-item-img">
                 <a href="#">
                     <img src={item.imageUrl} alt="" />
