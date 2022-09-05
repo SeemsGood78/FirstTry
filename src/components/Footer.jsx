@@ -46,24 +46,17 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="inside-rightside">
-                            <p className="title">КОНТАКТЫ</p>
+                            <p className="title">Create by</p>
                             <ul>
                                 <li>
-                                    <span>Интеренет магазин</span>
-                                    <p>044 390 79 61</p>
-                                    <p>050 385 04 68</p>
+                                    <span>IFiks619</span>
+                                    <img src="" alt="" />
                                 </li>
                                 <li>
-                                    <span>Режим работы</span>
-                                    <p>Пн.-Пт. 9:00-18:00</p>
-                                    <p>Сб. 9:00-18:00</p>
-                                </li>
-                                <li>
-                                    <span>Адрес:</span>
-                                    <p>г. Киев, ул. Мечникова 9</p>
+                                    <span>SeemsGood78</span>
+                                    <img src="./style/im/16.jpg" alt="" />
                                 </li>
                             </ul>
-                            <p><a href="#"><img src="./style/im/16.jpg" alt="" /></a></p>
                         </div>
                     </div>
                 </div>
