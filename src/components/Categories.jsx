@@ -12,7 +12,7 @@ const Categories = ({sortId, setSortId }) => {
     return (
         <div>
             <div className="bottom-banner">
-                <div className="container flexb">
+                <div className="flexb">
                     <ul>
                         {categories.map((category, idx) => (
                             <li

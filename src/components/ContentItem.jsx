@@ -13,7 +13,7 @@ const ContentItem = ({item}) => {
             <div className="right-block-grid-item-text">
                 <a href="#" className="title">
                     <span>{item.title}</span>
-                    <p>{item.volume} л
+                    <p>{item.volume} L.
                     </p>
                 </a>
                 <span>
@@ -22,13 +22,13 @@ const ContentItem = ({item}) => {
             </div>
             <div className="right-block-grid-item-price">
                 <div>
-                    <p>Цена за 1 шт</p>
+                    <p>Price for one</p>
                     <div>
                         {item.price}
-                        <sup>грн</sup>
+                        <sup>UAH</sup>
                     </div>
                 </div>
-                <input type="button" value="+ В корзину " />
+                <input type="button" value="Add to cart " />
             </div>
         </div>
     )

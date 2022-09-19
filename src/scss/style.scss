@@ -32,17 +32,25 @@ li {
 .top-bannerbg {
     min-height: 72px;
     background: $bldar;
+    @media (max-width:1280px) {
+        position: fixed;
+        width: 100%;  
+        top: 0;
+}
 }
 
 .top-banner {
+    
     justify-content: space-between;
     display: flex;
     align-items: center;
     padding: 10px;
     min-height: 72px;
 
+
     @media (max-width:1280px) {
         flex-wrap: wrap;
+        display: none;
 
         .top-banner-search {
             order: 3;
@@ -193,11 +201,13 @@ li {
 }
 
 .bottom-banner {
-    // kakogo???
-    border-bottom: 1px solid $whit;
-
     &>div>ul {
         display: flex;
+
+        @media (max-width: 1280px) {
+            overflow: auto;
+            white-space: nowrap;
+        }
     }
 
     &>div>ul>li {
@@ -246,6 +256,10 @@ li.withInnerMenu>a::after {
     &-leftblock {
         width: 180px;
         margin-top: 25px;
+
+        @media (max-width: 1280px) {
+            display: none;
+        }
 
         &-Filter {
             padding-bottom: 30px;
@@ -392,6 +406,10 @@ li.withInnerMenu>a::after {
         margin-left: 50px;
         width: 100%;
 
+        @media (max-width:1280px) {
+            margin-left: 0px;
+        }
+
         &-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -399,10 +417,29 @@ li.withInnerMenu>a::after {
             grid-column-gap: 0px;
             grid-row-gap: 0px;
 
+            @media (max-width:1280px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width:650px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            // &>div[class=right-block-grid-item]:nth-child(3n-1){
+            //     border-left: 1px solid;
+            //     border-right: 1px solid;
+            // }
             &-item {
                 margin-right: 0;
                 padding: 30px 40px 10px;
                 margin-bottom: 30px;
+
+                // border-top: 1px solid;
+                @media (max-width:650px) {
+                    border: 1px solid $lgray;
+                    padding-bottom: 30px;
+                    border-radius: 5px;
+                }
 
                 &-price {
                     display: flex;
@@ -590,15 +627,36 @@ li.withInnerMenu>a::after {
 
 .inside {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-bottom: 100px;
 
-    &-rightside {
-        width: 190px;
+    @media (max-width: 1280px) {
+        flex-wrap: wrap;
+        padding-bottom: 20px;
+        display: block;
+    }
 
+    &-rightside {
+        width: 220px;
+        @media (max-width: 1280px) {
+            margin-top: 25px;
+            width: auto;
+        }
         &>ul>li {
             margin-bottom: 10px;
             color: $lgray;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+
+            &>a {
+                margin-left: 15px;
+
+                &>img {
+                    height: 32px;
+
+                }
+            }
 
             &>span {
                 font-size: 14px;
@@ -635,11 +693,18 @@ li.withInnerMenu>a::after {
 
     &-leftside {
         display: flex;
-
+        @media (max-width: 1280px) {
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
         &-footercol {
             width: 190px;
             margin-right: 45px;
-
+            @media (max-width: 1280px) {
+                margin-top: 25px;
+                margin-right: 0;
+                width: auto !important;
+            }
             &>p {
                 display: block;
                 font-size: 14px;
@@ -712,47 +777,6 @@ label[class=checked] {
     }
 }
 
-
-.dropdown {
-    position: relative;
-    transition: .4s;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    width: 190px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 5px;
-    background: $whit;
-    border: 1px solid rgba(44, 44, 44, .07);
-    text-align: left;
-    z-index: 99;
-    overflow: hidden;
-    font-weight: 300;
-    border-radius: 5px;
-    left: auto;
-    right: 0;
-    width: auto;
-    min-width: 170px;
-
-    &>li {
-        &>a {
-            padding-left: 20px;
-            padding-right: 20px;
-            white-space: nowrap;
-            font-weight: 300;
-            position: relative;
-            display: block;
-            padding: 16px 17px;
-            color: $bldar;
-            font-size: 15px;
-            font-weight: 400;
-        }
-    }
-}
 
 .cart {
     &-navbar {
@@ -865,7 +889,6 @@ label[class=checked] {
         max-width: 800px;
         border-left: 1px solid $lgray ;
         margin-top: 80px;
-
 
         &-bottom {
             border-top: 1px solid $lgray;
@@ -1219,6 +1242,10 @@ label[class=checked] {
 .dropdown {
     position: relative;
     display: inline-block;
+    @media (max-width:650px) {
+        margin-top: 15px;
+        margin-left: auto;
+    }
 
     &>span {
         font-weight: 500;
@@ -1272,9 +1299,13 @@ label[class=checked] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 footer {
+    @media (max-width: 1280px) {
+        padding-top: 0px;
+    }
 
     margin-top: 100px;
     background-color: $bldar;
@@ -1291,13 +1322,16 @@ footer {
     fill: currentColor;
 }
 
-.notAvailable{
+.notAvailable {
     opacity: 0.5;
-    cursor: not-allowed ;
-    input{
+    cursor: not-allowed;
+    border: none !important;
+
+    input {
         cursor: not-allowed !important;
     }
-    a{
-        cursor: not-allowed; 
+
+    a {
+        cursor: not-allowed;
     }
 }

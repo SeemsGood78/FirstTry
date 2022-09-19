@@ -10,14 +10,14 @@ const SideMenu = () => {
             <div className="content-leftblock">
                 <div className="content-leftblock-Filter">
                     <span>
-                        Цена
+                        Price
                         <i className="hidefilter"></i>
                     </span>
                     <div className="content-leftblock-Filter-price">
                         <div className="content-leftblock-Filter-price-el">
                             <div className="content-leftblock-Filter-price-el-selectPrice">
-                                <input type="text" placeholder="oт" />
-                                <input type="text" placeholder="до" />
+                                <input type="text" placeholder="from" />
+                                <input type="text" placeholder="to" />
                                 <input type="submit" value="OK" />
                             </div>
                         </div>
@@ -35,7 +35,7 @@ const SideMenu = () => {
                         </div>
                         <div className="content-leftblock-Filter-price-el">
                             <p>
-                                <label htmlFor="price-200">200 и больше</label>
+                                <label htmlFor="price-200">200 or more </label>
                             </p>
                             <span>1</span>
                         </div>
@@ -43,7 +43,7 @@ const SideMenu = () => {
                 </div>
 
                 <div className="content-leftblock-Filter">
-                    <span>Емкость
+                    <span>Bottle size
                         <i onClick={() => setIsShown(!isShown)} className="hidefilter">
                         </i>
                     </span>

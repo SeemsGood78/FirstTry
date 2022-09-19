@@ -34,27 +34,17 @@ const Footer = () => {
                                     <li><a href="#">Школа сомелье</a></li>
                                 </ul>
                             </div>
-                            <div className="inside-leftside-footercol">
-                                <p>Доставка</p>
-                                <ul>
-                                    <li><a href="#">Условия доставки и оплаты</a></li>
-                                    <li><a href="#">Возврат товаров</a></li>
-                                    <li>
-                                        <img src="./style/im/16.jpg" alt="" />
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                         <div className="inside-rightside">
                             <p className="title">Create by</p>
                             <ul>
                                 <li>
                                     <span>IFiks619</span>
-                                    <img src="" alt="" />
+                                    <a href="https://github.com/IFiks619"><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/GitHub_Logo_White.png" alt="" /><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/GitHub-Mark-Light-32px.png" alt="" /></a>
                                 </li>
                                 <li>
                                     <span>SeemsGood78</span>
-                                    <img src="./style/im/16.jpg" alt="" />
+                                    <a href="https://github.com/SeemsGood78"><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/GitHub_Logo_White.png" alt="" /><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/GitHub-Mark-Light-32px.png" alt="" /></a>
                                 </li>
                             </ul>
                         </div>
