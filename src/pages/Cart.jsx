@@ -1,7 +1,15 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import CartItem from "../components/CartItem";
+import { clearCart } from "../redux/slices/cartSlice";
 
 const Cart = () => {
+    const dispatch = useDispatch()
+    const { items, totalPrice } = useSelector(state => state.cart)
+
+    console.log(items)
+
     return (
         <>
             <div className="container">
@@ -28,6 +36,7 @@ const Cart = () => {
                             </li>
                         </ul>
                     </div>
+                    {/* переименовать */}
                     <div className="cart-leftblock">
                         <div className="cart-leftblock-emptycart">
                             <div className="cart-leftblock-emptycart-name">
@@ -43,47 +52,16 @@ const Cart = () => {
                                 <span>Qty</span>
                             </div>
                             <div className="cart-leftblock-emptycart-total">
-                                <span>Line Price</span>
+                                <span>Total Price</span>
                             </div>
                         </div>
-                        <div className="cart-leftblock-item">
-                            <a href="#"></a>
-                            <div className="cart-leftblock-item-namecol">
-                                <div className="cart-leftblock-item-namecol-img">
-                                    <a href="#">
-                                        <img src='../assets/img/Ale/Amber.png' alt="" />
-                                    </a>
-                                </div>
-                                <div className="cart-leftblock-item-namecol-text">
-                                    <a href="#">
-                                        <span>
-                                            Issac   
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="cart-leftblock-item-capacitycol">
-                                <p>0,75 L.</p>
-                            </div>
-                            <div className="cart-leftblock-item-price4one">
-                                <p>249<sup className="idk">UAH</sup></p>
-                            </div>
-                            <div className="cart-leftblock-item-quantitycol">
-                                <form action="">
-                                    <p>
-                                        <a href="#" className="minus"></a>
-                                        <input type="text" value="1" size="4" maxLength="12" />
-                                        <a href="#" className="plus"></a>
-                                    </p>
-                                </form>
-                            </div>
-                            <div className="cart-leftblock-item-totalcol">
-                                <p>249<sup className="idk">UAH</sup></p>
-                            </div>
-                        </div>
+                        {
+                            items.map((item, idx) => <CartItem key={idx} item={item} />)
+                        }
                         <div className="cart-leftblock-bottom">
                             <Link to='/' className="cart-navbar-continue">Continue shopping</Link>
-                            <a href="#">Clear cart</a>
+                            {/* not a, button */}
+                            <a href="#" onClick={() => dispatch(clearCart())}>Clear cart</a>
                         </div>
                     </div>
                 </div>

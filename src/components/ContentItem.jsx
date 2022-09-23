@@ -1,6 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/slices/cartSlice";
 
 const ContentItem = ({item}) => {
+    const dispatch = useDispatch()
+
+    const addToCart = (item) => {
+        dispatch(
+            addItem({
+                ...item
+            })
+        )
+    }
+
     return (
         <div key={item.id} 
             className={item.isAvailable? "right-block-grid-item" : "right-block-grid-item notAvailable"}
@@ -28,7 +40,7 @@ const ContentItem = ({item}) => {
                         <sup>UAH</sup>
                     </div>
                 </div>
-                <input type="button" value="Add to cart " />
+                <input type="button" value="Add to cart " onClick={()=> addToCart(item)} />
             </div>
         </div>
     )

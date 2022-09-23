@@ -1,6 +1,6 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useSelector } from 'react-redux'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchItems } from "../redux/slices/sortSlice";
 
 import ContentItem from "./ContentItem";
 import Skeleton from "./Skeleton";
@@ -8,36 +8,36 @@ import Skeleton from "./Skeleton";
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
 const sortList = ['title', 'rating', 'price']
 
+const ContentBlock = ({ sortId }) => {
+    const dispatch = useDispatch()
+    const { searchValue, categoryId, items, status } = useSelector(state => state.sort)
 
-const ContentBlock = ({sortId}) => {
-    const searchValue = useSelector(state => state.sort.searchValue)
-    const categoryId = useSelector(state => state.sort.categoryId)
-    const [items, setItems] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-
-
-    useEffect(() => {
-        setIsLoading(true)
+    const getItems = async () => {
         const linkType = categoryId ? `type=${categories[categoryId]}` : ''
         const linkSort = `sortBy=${sortList[sortId]}`
 
-        axios.get(`https://62fe842e41165d66bfc1aab6.mockapi.io/Items?${linkType}&${linkSort}`)
-            .then(res => {
-                setItems(res.data)
-                setIsLoading(false)
-            })
-            .catch(err => {
-                alert('Something went wrong!')
-                console.error(err)
-            })
-    }, [categoryId,sortId])
+        dispatch(
+            fetchItems({
+                linkType,
+                linkSort,
+            }),
+        );
+    }
 
+    useEffect(() => {
+        getItems()
+    }, [categoryId, sortList])
+
+    // optional
+    if (status === 'error') {
+        return (<h1>Error with getting data</h1>)
+    }
 
     return (
         <>
             <div className="right-block">
                 <div className="right-block-grid">
-                    {isLoading
+                    {status !== 'loaded'
                         ?
                         [...Array(9)].map((_, idx) => (
                             <Skeleton key={idx} />

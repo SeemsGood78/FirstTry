@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setSearchValue } from "../redux/slices/sortSlice";
 
 const Header = () => {
+    const {items, totalPrice} = useSelector(state => state.cart)
     const [headerSearch, setHeaderSearch] = useState('')
     const dispatch = useDispatch()
 
@@ -46,8 +47,8 @@ const Header = () => {
                             </div>
                             <div className="top-banner-cart">
                                 <Link to={'/cart'}>
-                                    <span>Cart: 0</span>
-                                    <p>000</p>
+                                    <span>Cart: {items.length}</span>
+                                    <p>{totalPrice} UAH</p>
                                 </Link>
                             </div>
                             <div className="top-banner-contacts">
