@@ -40,7 +40,7 @@ const ContentItem = ({item}) => {
                         <sup>UAH</sup>
                     </div>
                 </div>
-                <input type="button" value="Add to cart " onClick={()=> addToCart(item)} />
+                <button onClick={()=> addToCart(item)}>Add to cart</button>
             </div>
         </div>
     )

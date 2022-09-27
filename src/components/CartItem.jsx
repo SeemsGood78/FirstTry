@@ -1,12 +1,17 @@
 import { useDispatch } from "react-redux"
-import { removeItem } from "../redux/slices/cartSlice"
+import { minusItem, plusItem, removeItem } from "../redux/slices/cartSlice"
 
 const CartItem = ({item}) => {
     const dispatch = useDispatch()
+    const onClickRemove = (param) => {
+        if( window.confirm("Do you really want to remove this item")) {
+            dispatch(removeItem(param))
+        }
+    }
 
     return (
         <div className="cart-leftblock-item">
-            <a href="#" onClick={() => dispatch(removeItem(item.id))}></a>
+            <a href="#" onClick={ () => onClickRemove(item.id) }></a>
             <div className="cart-leftblock-item-namecol">
                 <div className="cart-leftblock-item-namecol-img">
                     <a href="#">
@@ -29,13 +34,13 @@ const CartItem = ({item}) => {
             </div>
             <div className="cart-leftblock-item-quantitycol">
                 {/* Не форма */}
-                <form action="">
+                <div>
                     <p>
-                        <a href="#" className="minus"></a>
-                        <input type="text" value={item.count} size="4" maxLength="12" />
-                        <a href="#" className="plus"></a>
+                        <button className="minus" onClick={() => dispatch(minusItem(item.id))}></button>
+                        <span>{item.count}</span>
+                        <button className="plus" onClick={() => dispatch(plusItem(item.id))}></button>
                     </p>
-                </form>
+                </div>
             </div>
             <div className="cart-leftblock-item-totalcol">
                 <p>{item.count*item.price}<sup className="idk">UAH</sup></p>

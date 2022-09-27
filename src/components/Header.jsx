@@ -31,6 +31,7 @@ const Header = () => {
                                     Pivoslav
                                 </Link>
                             </div>
+                            <div className="Formobile"><img src="" alt="" /></div>
                             <div className="top-banner-search">
                                 <input
                                     value={headerSearch}
@@ -41,6 +42,7 @@ const Header = () => {
                                 <span  onClick={() => clearInput()}><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png" alt=""></img></span>  
                                 <button onClick={() => dispatch(setSearchValue(headerSearch))} style={{ color: 'white' }}>Confirm</button>
                             </div>
+                            <div className="Formobile"><img src="../assets/icons/menu.png" alt="" /></div>
                             <div className="top-banner-cab">
                                 <p><a href="#">Log in</a> | <a href="#">Sign up</a></p>
                                 <span>Kab</span>

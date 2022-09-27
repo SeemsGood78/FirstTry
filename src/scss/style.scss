@@ -32,15 +32,25 @@ li {
 .top-bannerbg {
     min-height: 72px;
     background: $bldar;
+
     @media (max-width:1280px) {
         position: fixed;
-        width: 100%;  
+        width: 100%;
         top: 0;
+        z-index: 999;
+        min-height: 56px;
+    }
 }
+
+.Formobile{
+    display:none;
+    @media (max-width:650px){
+        display: block;
+    }
 }
 
 .top-banner {
-    
+
     justify-content: space-between;
     display: flex;
     align-items: center;
@@ -50,10 +60,9 @@ li {
 
     @media (max-width:1280px) {
         flex-wrap: wrap;
-        display: none;
+        min-height: auto;
 
         .top-banner-search {
-            order: 3;
             margin: auto;
         }
     }
@@ -62,6 +71,10 @@ li {
         font-size: 30px;
         color: $whit;
         font-weight: 700;
+
+        @media (max-width:620px) {
+            display: none;
+        }
     }
 
     &-search {
@@ -71,6 +84,10 @@ li {
         display: flex;
         border: none;
         position: relative;
+
+        @media (max-width:650px) {
+            max-width: 66%;
+        }
 
 
         // rework
@@ -84,6 +101,10 @@ li {
             font-weight: 600;
             color: black;
             transition: .3s;
+
+            @media (max-width:650px) {
+                right: 0px;
+            }
 
             &>img {
                 margin-top: 7px;
@@ -101,6 +122,10 @@ li {
             border-style: solid;
             border-width: 4px 7px 4px 0;
             border-color: transparent $whit transparent transparent;
+
+            @media (max-width:650px) {
+                display: none;
+            }
         }
 
 
@@ -130,10 +155,18 @@ li {
             padding: 10px;
             width: 80px;
             font-weight: 600;
+
+            @media (max-width:650px) {
+                display: none;
+            }
         }
     }
 
     &-cab {
+        @media (max-width:620px) {
+            display: none;
+        }
+
         &>p>a {
             font-size: 18px;
             color: $lgray;
@@ -146,6 +179,10 @@ li {
     }
 
     &-cart {
+        @media (max-width:620px) {
+            display: none;
+        }
+
         min-width: 140px;
 
         &>a {
@@ -175,6 +212,10 @@ li {
     }
 
     &-contacts {
+        @media (max-width:620px) {
+            display: none;
+        }
+
         &>p {
             margin-bottom: 1px;
             font-size: 14px;
@@ -201,6 +242,10 @@ li {
 }
 
 .bottom-banner {
+    @media (max-width:1280px) {
+        margin-top: 56px;
+    }
+
     &>div>ul {
         display: flex;
 
@@ -419,6 +464,7 @@ li.withInnerMenu>a::after {
 
             @media (max-width:1280px) {
                 grid-template-columns: repeat(2, 1fr);
+                margin-top: 25b3px;
             }
 
             @media (max-width:650px) {
@@ -453,7 +499,7 @@ li.withInnerMenu>a::after {
                         margin-bottom: 3px;
                     }
 
-                    &>input {
+                    &>button {
                         font-size: 14px;
                         line-height: 20px;
                         border-radius: 6px;
@@ -469,6 +515,10 @@ li.withInnerMenu>a::after {
                         outline: none;
                         border: none;
                         cursor: pointer;
+
+                        &:hover {
+                            background: #08131f;
+                        }
                     }
 
                     &>div>div {
@@ -638,10 +688,12 @@ li.withInnerMenu>a::after {
 
     &-rightside {
         width: 220px;
+
         @media (max-width: 1280px) {
             margin-top: 25px;
             width: auto;
         }
+
         &>ul>li {
             margin-bottom: 10px;
             color: $lgray;
@@ -693,18 +745,22 @@ li.withInnerMenu>a::after {
 
     &-leftside {
         display: flex;
+
         @media (max-width: 1280px) {
             flex-wrap: wrap;
             justify-content: space-around;
         }
+
         &-footercol {
             width: 190px;
             margin-right: 45px;
+
             @media (max-width: 1280px) {
                 margin-top: 25px;
                 margin-right: 0;
                 width: auto !important;
             }
+
             &>p {
                 display: block;
                 font-size: 14px;
@@ -1077,14 +1133,16 @@ label[class=checked] {
                 width: 90px;
                 text-align: center;
 
-                &>form {
+                &>div {
                     width: 95px;
 
                     &>p {
                         padding: 0 28px;
                         position: relative;
+                        display: flex;
+                        align-items: center;
 
-                        &>a[class=minus] {
+                        &>button[class=minus] {
                             position: absolute;
                             display: block;
                             width: 21px;
@@ -1096,6 +1154,8 @@ label[class=checked] {
                             border-radius: 50%;
                             left: 0;
                             transition: 0.4s;
+                            border: none;
+                            outline: none;
 
                             &:hover {
                                 background: $oran;
@@ -1115,7 +1175,7 @@ label[class=checked] {
                             }
                         }
 
-                        &>a[class=plus] {
+                        &>button[class=plus] {
                             position: absolute;
                             display: block;
                             width: 21px;
@@ -1127,6 +1187,8 @@ label[class=checked] {
                             border-radius: 50%;
                             right: 0;
                             transition: 0.4s;
+                            border: none;
+                            outline: none;
 
                             &:hover {
                                 background: $oran;
@@ -1158,7 +1220,7 @@ label[class=checked] {
                             }
                         }
 
-                        &>input {
+                        &>span {
                             height: 30px;
                             font-size: 17px;
                             text-align: center;
@@ -1167,6 +1229,7 @@ label[class=checked] {
                             font-weight: 200;
                             width: 40px;
                             outline: none;
+                            padding: 3px;
                         }
                     }
                 }
@@ -1242,6 +1305,7 @@ label[class=checked] {
 .dropdown {
     position: relative;
     display: inline-block;
+
     @media (max-width:650px) {
         margin-top: 15px;
         margin-left: auto;
