@@ -11,6 +11,19 @@ body {
     font-weight: 400;
 }
 
+
+#root{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.try{
+    margin-top: 0 !important;
+}
+
+
 a {
     text-decoration-skip-ink: auto;
     text-decoration: none;
@@ -42,10 +55,21 @@ li {
     }
 }
 
-.Formobile{
+.forMobile{
     display:none;
     @media (max-width:650px){
         display: block;
+        height: 32px;
+        &>img{
+            height: 32px;
+            width: 32px;
+        }
+    }
+}
+.albert{
+    &:hover {
+        background-color: $oran !important;
+        cursor: not-allowed !important ;
     }
 }
 
@@ -61,7 +85,8 @@ li {
     @media (max-width:1280px) {
         flex-wrap: wrap;
         min-height: auto;
-
+        padding-left: 0px;
+        padding-right: 0px;
         .top-banner-search {
             margin: auto;
         }
@@ -183,7 +208,7 @@ li {
             display: none;
         }
 
-        min-width: 140px;
+        min-width: 120px;
 
         &>a {
             display: flex;
@@ -191,12 +216,14 @@ li {
         }
 
         &>a::before {
-            background: url("../assets/img/Ale/Amber.png");
-            height: 28px;
-            width: 30px;
+            background: url("https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/shopping-cart.png");
+            height: 32px;
+            width: 32px;
             content: "";
             position: absolute;
             top: 22px;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         &>a>span {
@@ -515,7 +542,7 @@ li.withInnerMenu>a::after {
                         outline: none;
                         border: none;
                         cursor: pointer;
-
+                        transition: 0.4s;
                         &:hover {
                             background: #08131f;
                         }
@@ -835,109 +862,6 @@ label[class=checked] {
 
 
 .cart {
-    &-navbar {
-        margin-top: 22px;
-        margin-bottom: 21px;
-        line-height: 27px;
-        display: flex;
-        justify-content: space-between;
-
-        &-continue {
-            display: inline-block;
-            padding-right: 17px;
-            font-size: 20px;
-            line-height: 27px;
-            color: #08131f;
-        }
-
-        &__list {
-            max-width: 857px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-
-            &>li:nth-child(2)::before {
-                left: -110px;
-            }
-
-            &>li:nth-child(2)::after {
-                right: -110px;
-            }
-
-            &>li:nth-child(2)::before,
-            >li:nth-child(2)::after {
-                display: block;
-                position: absolute;
-                content: '';
-                top: 15px;
-                width: 65px;
-                height: 1px;
-                background: #d3dee3;
-            }
-
-
-            &>li {
-                position: relative;
-
-                &>a[class=current] {
-                    color: $bl;
-                    cursor: pointer;
-                    pointer-events: auto;
-
-                    &>span {
-                        border-color: $bl;
-                    }
-                }
-
-                &>a[class=disable] {
-                    cursor: default;
-                    pointer-events: none;
-                }
-
-                &>a {
-                    cursor: pointer;
-                    color: $lgray;
-                    pointer-events: auto;
-                    padding-left: 38px;
-                    position: relative;
-                    display: inline-block;
-                    height: 27px;
-                    padding-left: 38px;
-                    font-size: 20px;
-
-                    &>span {
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        display: block;
-                        width: 27px;
-                        height: 27px;
-                        border: 2px solid $lgray;
-                        -webkit-border-radius: 1px;
-                        -moz-border-radius: 1px;
-                        border-radius: 1px;
-                        line-height: 23px;
-                        text-align: center;
-
-                        &[class=cart-span]::before {
-                            content: "1";
-                            color: $bl;
-                        }
-
-                        &[class=order]::before {
-                            content: "2";
-                            color: $lgray;
-                        }
-
-                        &[class=finish]::before {
-                            content: "3";
-                            color: $lgray;
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     &-leftblock {
         display: flex;
@@ -945,6 +869,16 @@ label[class=checked] {
         max-width: 800px;
         border-left: 1px solid $lgray ;
         margin-top: 80px;
+
+        &-noItems{
+            height: 400px;
+            border-right: 1px solid $lgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 20px;
+        }
 
         &-bottom {
             border-top: 1px solid $lgray;
@@ -957,27 +891,17 @@ label[class=checked] {
             align-items: center;
 
             &>button {
-                outline: none;
-                padding: 12px;
-                border: none;
-                font: inherit;
-                color: inherit;
-                background-color: $oran;
-                cursor: pointer;
-                font-weight: 500;
-                color: $whit;
-            }
-
-            &>a {
                 padding-right: 25px;
                 position: relative;
                 font-size: 18px;
                 line-height: 27px;
-                color: $lgray;
-                transition: 0.4s;
-
+                color: $bldar;
+                transition: 0.2s;
+                border: none;
+                background-color: $whit;
+                cursor: pointer;
                 &:hover {
-                    color: $bl;
+                    color: $lgray;
                 }
             }
 
@@ -989,6 +913,14 @@ label[class=checked] {
                 line-height: 27px;
                 color: #08131f;
 
+            }
+            &>a{
+                transition: 0.2s;
+                font-size: 18px;
+                line-height: 27px;
+                &:hover{
+                    color: $lgray;
+                }
             }
         }
 

@@ -8,15 +8,15 @@ const Home = () => {
     const [sortId, setSortId] = useState(0)
     
     return (
-        <div>
-            <div className="container">
+        <>
+            <div className="container try">
                 <Categories sortId={sortId} setSortId={setSortId}/>
                 <div className="content">
                     <SideMenu />
                     <ContentBlock sortId={sortId}/>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

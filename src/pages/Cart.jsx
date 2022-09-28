@@ -12,31 +12,8 @@ const Cart = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container try">
                 <div className="cart">
-                    <div className="cart-navbar">
-                        <ul className="cart-navbar__list">
-                            <li>
-                                <a href="#" className="current">
-                                    <span className="cart-span"></span>
-                                    Моя корзина
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="disable lines">
-                                    <span className="order"></span>
-                                    Офромить заказ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="disable">
-                                    <span className="finish"></span>
-                                    Заказ оформлен
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    {/* переименовать */}
                     <div className="cart-leftblock">
                         <div className="cart-leftblock-emptycart">
                             <div className="cart-leftblock-emptycart-name">
@@ -52,16 +29,19 @@ const Cart = () => {
                                 <span>Qty</span>
                             </div>
                             <div className="cart-leftblock-emptycart-total">
-                                <span>Total Price</span>
+                                <span>Line Price</span>
                             </div>
                         </div>
+                        {/* <div className="cart-leftblock-noItems">
+                        You have no items in your cart
+                        </div> */}
                         {
                             items.map((item, idx) => <CartItem key={idx} item={item} />)
                         }
                         <div className="cart-leftblock-bottom">
                             <Link to='/' className="cart-navbar-continue">Continue shopping</Link>
-                            {/* not a, button */}
-                            <a href="#" onClick={() => dispatch(clearCart())}>Clear cart</a>
+                            <div>Total Price : {totalPrice} </div>
+                            <button href="#" onClick={() => dispatch(clearCart())}>Clear cart</button>
                         </div>
                     </div>
                 </div>

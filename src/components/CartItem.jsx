@@ -33,7 +33,6 @@ const CartItem = ({item}) => {
                 <p>{item.price}<sup className="idk">UAH</sup></p>
             </div>
             <div className="cart-leftblock-item-quantitycol">
-                {/* Не форма */}
                 <div>
                     <p>
                         <button className="minus" onClick={() => dispatch(minusItem(item.id))}></button>

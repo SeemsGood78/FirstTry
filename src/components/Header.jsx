@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setSearchValue } from "../redux/slices/sortSlice";
 
 const Header = () => {
-    const {items, totalPrice} = useSelector(state => state.cart)
+    const { items, totalPrice } = useSelector(state => state.cart)
     const [headerSearch, setHeaderSearch] = useState('')
     const dispatch = useDispatch()
 
@@ -31,7 +31,7 @@ const Header = () => {
                                     Pivoslav
                                 </Link>
                             </div>
-                            <div className="Formobile"><img src="" alt="" /></div>
+                            <div className="forMobile"><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/menu.png" alt="" /></div>
                             <div className="top-banner-search">
                                 <input
                                     value={headerSearch}
@@ -39,10 +39,12 @@ const Header = () => {
                                     onKeyUp={e => handleClick(e)}
                                     type="text"
                                     placeholder="Search..." />
-                                <span  onClick={() => clearInput()}><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png" alt=""></img></span>  
+                                <span onClick={() => clearInput()}><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png" alt=""></img></span>
                                 <button onClick={() => dispatch(setSearchValue(headerSearch))} style={{ color: 'white' }}>Confirm</button>
                             </div>
-                            <div className="Formobile"><img src="../assets/icons/menu.png" alt="" /></div>
+                            <Link to={'/cart'}>
+                                <div className="forMobile"><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/shopping-cart.png" alt="" /></div>
+                            </Link>
                             <div className="top-banner-cab">
                                 <p><a href="#">Log in</a> | <a href="#">Sign up</a></p>
                                 <span>Kab</span>

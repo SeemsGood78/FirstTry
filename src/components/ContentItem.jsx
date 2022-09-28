@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/slices/cartSlice";
 
-const ContentItem = ({item}) => {
+const ContentItem = ({ item }) => {
     const dispatch = useDispatch()
 
     const addToCart = (item) => {
@@ -14,8 +14,8 @@ const ContentItem = ({item}) => {
     }
 
     return (
-        <div key={item.id} 
-            className={item.isAvailable? "right-block-grid-item" : "right-block-grid-item notAvailable"}
+        <div key={item.id}
+            className={item.isAvailable ? "right-block-grid-item" : "right-block-grid-item notAvailable"}
         >
             <div className="right-block-grid-item-img">
                 <a href="#">
@@ -40,7 +40,13 @@ const ContentItem = ({item}) => {
                         <sup>UAH</sup>
                     </div>
                 </div>
-                <button onClick={()=> addToCart(item)}>Add to cart</button>
+                <button
+                    disabled={item.isAvailable ? "" : "true"}
+                    className={item.isAvailable ? "" : "albert"}
+                    onClick={() => addToCart(item)}
+                >
+                    Add to cart
+                </button>
             </div>
         </div>
     )
