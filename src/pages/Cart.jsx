@@ -8,7 +8,13 @@ const Cart = () => {
     const dispatch = useDispatch()
     const { items, totalPrice } = useSelector(state => state.cart)
 
-    console.log(items)
+    if (!totalPrice) {
+        return <>
+            <div className="cart-leftblock-noItems">
+                You have no items in your cart
+            </div>
+        </>
+    }
 
     return (
         <>

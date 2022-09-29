@@ -39,14 +39,19 @@ const Header = () => {
                                     onKeyUp={e => handleClick(e)}
                                     type="text"
                                     placeholder="Search..." />
-                                <span onClick={() => clearInput()}><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png" alt=""></img></span>
+                                <span
+                                className={headerSearch ? '' : 'display-none'}                                                                                 
+                                onClick={() => clearInput()}
+                                >
+                                    <img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png" alt=""/>
+                                    </span>
                                 <button onClick={() => dispatch(setSearchValue(headerSearch))} style={{ color: 'white' }}>Confirm</button>
                             </div>
                             <Link to={'/cart'}>
                                 <div className="forMobile"><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/shopping-cart.png" alt="" /></div>
                             </Link>
                             <div className="top-banner-cab">
-                                <p><a href="#">Log in</a> | <a href="#">Sign up</a></p>
+                                <p><a href="">Log in</a> | <a href="">Sign up</a></p>
                                 <span>Kab</span>
                             </div>
                             <div className="top-banner-cart">
@@ -60,7 +65,7 @@ const Header = () => {
                                 <span>050 385 04 68</span>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </header>
         </div>

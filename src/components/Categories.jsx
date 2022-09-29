@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector} from 'react-redux'
-import { setCategoryId } from "../redux/slices/sortSlice";
+import React from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import { setCategoryId, setSortId } from "../redux/slices/sortSlice";
 
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
 const sortList = ['name', 'rating', 'price']
 
-const Categories = ({sortId, setSortId }) => {
+const Categories = () => {
     const dispatch = useDispatch()
-    const categoryId = useSelector(state => state.sort.categoryId)
+    const { sortId, categoryId } = useSelector(state => state.sort)
 
     return (
         <div>
@@ -33,7 +33,7 @@ const Categories = ({sortId, setSortId }) => {
                                     <a
                                         key={idx}
                                         href="#"
-                                        onClick={() => setSortId(idx)}
+                                        onClick={() => dispatch(setSortId(idx))}
                                     >{item}</a>
                                 ))
                             }

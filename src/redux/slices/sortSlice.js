@@ -11,6 +11,7 @@ const initialState = {
   items: [],
   searchValue: '',
   categoryId: 0,
+  sortId: 0,
   status: 'loading'
 }
 
@@ -24,6 +25,9 @@ export const sortSlice = createSlice({
     setCategoryId: (state, action) => {
       state.categoryId = action.payload
     },
+    setSortId: (state, action) => {
+      state.sortId = action.payload
+    },
   },
   extraReducers: {
     //get items from api
@@ -32,7 +36,10 @@ export const sortSlice = createSlice({
       state.status = 'loading'
     },
     [fetchItems.fulfilled]: (state, action) => {
-      state.items = action.payload
+      // state.items = action.payload
+      const available = action.payload.filter(item => item.isAvailable)
+      const unAvailable = action.payload.filter(item => !item.isAvailable)
+      state.items = [...available, ...unAvailable]
       state.status = 'loaded'
     },
     [fetchItems.rejected]: (state) => {
@@ -44,6 +51,6 @@ export const sortSlice = createSlice({
 })
 
 
-export const { setSearchValue, setCategoryId } = sortSlice.actions
+export const { setSearchValue, setCategoryId, setSortId } = sortSlice.actions
 
 export default sortSlice.reducer

@@ -8,9 +8,9 @@ import Skeleton from "./Skeleton";
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
 const sortList = ['title', 'rating', 'price']
 
-const ContentBlock = ({ sortId }) => {
+const ContentBlock = ( ) => {
     const dispatch = useDispatch()
-    const { searchValue, categoryId, items, status } = useSelector(state => state.sort)
+    const { searchValue, categoryId, sortId, items, status } = useSelector(state => state.sort)
 
     const getItems = async () => {
         const linkType = categoryId ? `type=${categories[categoryId]}` : ''
@@ -26,7 +26,7 @@ const ContentBlock = ({ sortId }) => {
 
     useEffect(() => {
         getItems()
-    }, [categoryId, sortList])
+    }, [categoryId, sortList, sortId])
 
     // optional
     if (status === 'error') {

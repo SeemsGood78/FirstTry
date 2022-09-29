@@ -11,15 +11,15 @@ const CartItem = ({item}) => {
 
     return (
         <div className="cart-leftblock-item">
-            <a href="#" onClick={ () => onClickRemove(item.id) }></a>
+            <a href="" onClick={ () => onClickRemove(item.id) }></a>
             <div className="cart-leftblock-item-namecol">
                 <div className="cart-leftblock-item-namecol-img">
-                    <a href="#">
+                    <a href="">
                         <img src={item.imageUrl} />
                     </a>
                 </div>
                 <div className="cart-leftblock-item-namecol-text">
-                    <a href="#">
+                    <a href="">
                         <span>
                             {item.title}
                         </span>
@@ -35,7 +35,7 @@ const CartItem = ({item}) => {
             <div className="cart-leftblock-item-quantitycol">
                 <div>
                     <p>
-                        <button className="minus" onClick={() => dispatch(minusItem(item.id))}></button>
+                        <button className="minus" disabled={item.count === 1} onClick={() => dispatch(minusItem(item.id))}></button>
                         <span>{item.count}</span>
                         <button className="plus" onClick={() => dispatch(plusItem(item.id))}></button>
                     </p>

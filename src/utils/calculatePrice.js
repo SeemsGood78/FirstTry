@@ -1,5 +1,4 @@
-export const calculateTotalPrice = (hto) => {
-    hto.reduce((acc, item) => {
-        return (item.price * item.count) + acc
-    }, 0)
+export const calculateTotalPrice = (array) => {
+    return array.reduce((acc, item) =>  (item.price * item.count) + acc, 0)
 }
+
