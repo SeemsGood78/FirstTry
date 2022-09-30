@@ -1,10 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../redux/slices/cartSlice";
 
 const ContentItem = ({ item }) => {
     const dispatch = useDispatch()
-
+    
     const addToCart = (item) => {
         dispatch(
             addItem({
@@ -41,7 +41,7 @@ const ContentItem = ({ item }) => {
                     </div>
                 </div>
                 <button
-                    disabled={item.isAvailable ? "" : "true"}
+                    disabled={!item.isAvailable}
                     className={item.isAvailable ? "" : "albert"}
                     onClick={() => addToCart(item)}
                 >

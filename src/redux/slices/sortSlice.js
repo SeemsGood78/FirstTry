@@ -51,6 +51,6 @@ export const sortSlice = createSlice({
 })
 
 
-export const { setSearchValue, setCategoryId, setSortId } = sortSlice.actions
+export const { setSearchValue, setCategoryId, setSortId, addToStorage } = sortSlice.actions
 
 export default sortSlice.reducer

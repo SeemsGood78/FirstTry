@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import '../src/scss/style.scss'
+import '../src/scss/main.scss'
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Cart from "./pages/Cart";

@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from 'react-redux'
 import { setSearchValue } from "../redux/slices/sortSlice";
 
 const Header = () => {
+    const dispatch = useDispatch()
     const { items, totalPrice } = useSelector(state => state.cart)
     const [headerSearch, setHeaderSearch] = useState('')
-    const dispatch = useDispatch()
+    const isMounted = useRef(false)
+
+    useEffect(() => {
+        // проверка на первый рендер компонента
+        if (isMounted.current) {
+            const json = JSON.stringify(items)
+            localStorage.setItem('cart', json)
+        }
+        isMounted.current = true
+    }, [items])
 
     const handleClick = (e) => {
         if (e.keyCode === 13) {
@@ -40,11 +50,11 @@ const Header = () => {
                                     type="text"
                                     placeholder="Search..." />
                                 <span
-                                className={headerSearch ? '' : 'display-none'}                                                                                 
-                                onClick={() => clearInput()}
+                                    className={headerSearch ? '' : 'display-none'}
+                                    onClick={() => clearInput()}
                                 >
-                                    <img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png" alt=""/>
-                                    </span>
+                                    <img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png" alt="" />
+                                </span>
                                 <button onClick={() => dispatch(setSearchValue(headerSearch))} style={{ color: 'white' }}>Confirm</button>
                             </div>
                             <Link to={'/cart'}>
@@ -65,7 +75,7 @@ const Header = () => {
                                 <span>050 385 04 68</span>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </header>
         </div>

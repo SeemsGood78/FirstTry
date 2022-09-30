@@ -3,6 +3,7 @@ import { minusItem, plusItem, removeItem } from "../redux/slices/cartSlice"
 
 const CartItem = ({item}) => {
     const dispatch = useDispatch()
+    
     const onClickRemove = (param) => {
         if( window.confirm("Do you really want to remove this item")) {
             dispatch(removeItem(param))
@@ -11,6 +12,7 @@ const CartItem = ({item}) => {
 
     return (
         <div className="cart-leftblock-item">
+            {/* bug */}
             <a href="" onClick={ () => onClickRemove(item.id) }></a>
             <div className="cart-leftblock-item-namecol">
                 <div className="cart-leftblock-item-namecol-img">

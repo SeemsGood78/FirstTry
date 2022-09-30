@@ -1,0 +1,359 @@
+.cart {
+
+    &-leftblock {
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        border-left: 1px solid $lgray ;
+        margin-top: 80px;
+
+        &-noItems{
+            height: 400px;
+            border-right: 1px solid $lgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        &-bottom {
+            border-top: 1px solid $lgray;
+            border-right: 1px solid $lgray;
+            border-bottom: 1px solid $lgray;
+            padding: 18px 21px 18px 30px;
+            width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &>button {
+                padding-right: 25px;
+                position: relative;
+                font-size: 18px;
+                line-height: 27px;
+                color: $bldar;
+                transition: 0.2s;
+                border: none;
+                background-color: $whit;
+                cursor: pointer;
+                &:hover {
+                    color: $lgray;
+                }
+            }
+
+            &>a[class=condition] {
+                position: relative;
+                display: inline-block;
+                padding-right: 17px;
+                font-size: 20px;
+                line-height: 27px;
+                color: #08131f;
+
+            }
+            &>a{
+                transition: 0.2s;
+                font-size: 18px;
+                line-height: 27px;
+                &:hover{
+                    color: $lgray;
+                }
+            }
+        }
+
+
+        &-item {
+            margin-left: 40px;
+            position: relative;
+            padding: 24px 0 20px;
+            display: flex;
+            border-right: 1px solid $lgray;
+            height: 138px;
+
+            &>a {
+                position: absolute;
+                display: block;
+                top: 50%;
+                left: -25px;
+                margin-top: -9px;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background-color: #f1f1f1;
+
+                &:hover::after {
+                    background-color: $dargrey;
+                }
+
+                &:hover::before {
+                    background-color: $dargrey;
+                }
+
+                &::after {
+                    transform: rotate(-45deg);
+                    position: absolute;
+                    content: '';
+                    box-sizing: border-box;
+                    top: 5px;
+                    left: 8px;
+                    width: 1px;
+                    height: 8px;
+                    background: #2a2731;
+                    transform: rotate(-45deg);
+                    border-radius: 1px;
+                }
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    box-sizing: border-box;
+                    top: 5px;
+                    left: 8px;
+                    width: 1px;
+                    height: 8px;
+                    background: #2a2731;
+                    transform: rotate(45deg);
+                    border-radius: 1px;
+                }
+            }
+
+            &-namecol {
+                width: 400px;
+                display: flex;
+
+                &-img {
+                    width: 50px;
+                    margin-right: 15px;
+                    text-align: center;
+
+                    &>a {
+                        width: 35px;
+                        height: 94px;
+                        position: relative;
+                        display: inline-block;
+
+                        &>img {
+                            width: 35px;
+                            height: 94px;
+                        }
+                    }
+                }
+
+                &-text {
+                    &>span {
+                        font-size: 14px;
+                        display: block;
+                        margin-bottom: 4px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        font-weight: 300;
+                        text-overflow: ellipsis;
+
+                        &>a:hover {
+                            color: $dargrey;
+                        }
+                    }
+
+                    &>a {
+                        &>span {
+                            display: flex;
+                            font-size: 18px;
+                            line-height: 23px;
+                            overflow: hidden;
+                            max-height: 46px;
+                            font-weight: 400;
+
+                            &:hover {
+                                color: $dargrey;
+                            }
+
+                            &>p {
+                                font-size: 13px;
+                                color: $dargrey;
+                                font-weight: 300;
+                                margin-left: 5px;
+                                margin-top: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-capacitycol {
+
+                width: 90px;
+
+                &>p {
+                    font-size: 17px;
+                    padding: 1px;
+                    font-weight: 500;
+                }
+            }
+
+            &-price4one {
+                width: 90px;
+
+                &>p {
+                    font-size: 17px;
+                }
+            }
+
+            &-quantitycol {
+                width: 90px;
+                text-align: center;
+
+                &>div {
+                    width: 95px;
+
+                    &>p {
+                        padding: 0 28px;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+
+                        &>button[class=minus] {
+                            position: absolute;
+                            display: block;
+                            width: 21px;
+                            height: 21px;
+                            background: #f3f3f3;
+                            top: 4px;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            border-radius: 50%;
+                            left: 0;
+                            transition: 0.4s;
+                            border: none;
+                            outline: none;
+
+                            &:hover {
+                                background: $oran;
+                            }
+
+                            &::before {
+                                position: absolute;
+                                content: '';
+                                -moz-box-sizing: border-box;
+                                box-sizing: border-box;
+                                width: 5px;
+                                height: 1px;
+                                background: $bl;
+                                top: 10px;
+                                left: 8px;
+
+                            }
+                        }
+
+                        &>button[class=plus] {
+                            position: absolute;
+                            display: block;
+                            width: 21px;
+                            height: 21px;
+                            background: #f3f3f3;
+                            top: 4px;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            border-radius: 50%;
+                            right: 0;
+                            transition: 0.4s;
+                            border: none;
+                            outline: none;
+
+                            &:hover {
+                                background: $oran;
+                            }
+
+                            &::before {
+                                width: 9px;
+                                left: 6px;
+                                position: absolute;
+                                content: '';
+                                -moz-box-sizing: border-box;
+                                box-sizing: border-box;
+                                height: 1px;
+                                background: $bl;
+                                top: 10px;
+                            }
+
+                            &::after {
+                                position: absolute;
+                                content: '';
+                                -moz-box-sizing: border-box;
+                                box-sizing: border-box;
+                                width: 1px;
+                                height: 9px;
+                                background: #2a2731;
+                                top: 6px;
+                                left: 10px;
+
+                            }
+                        }
+
+                        &>span {
+                            height: 30px;
+                            font-size: 17px;
+                            text-align: center;
+                            border: 1px solid $lgray;
+                            font-family: 'proxima-nova', sans-serif;
+                            font-weight: 200;
+                            width: 40px;
+                            outline: none;
+                            padding: 3px;
+                        }
+                    }
+                }
+
+            }
+
+            &-totalcol {
+                width: 90px;
+                text-align: right;
+                margin-right: 15px;
+
+                &>p {
+                    font-size: 17px;
+                }
+            }
+        }
+
+        &-emptycart {
+            padding-left: 40px;
+            height: 37px;
+            line-height: 35px;
+            border-top: 1px solid $lgray;
+            border-bottom: 1px solid $lgray;
+            display: flex;
+            border-right: 1px solid $lgray;
+
+            &>div>span {
+                color: $bl;
+                font-size: 14px;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+
+            &-name {
+                width: 400px;
+            }
+
+            &-capacity {
+                width: 90px;
+            }
+
+            &-price {
+                width: 90px;
+            }
+
+            &-quantity {
+                width: 90px;
+                text-align: center;
+            }
+
+            &-total {
+                width: 90px;
+                text-align: right;
+                margin-right: 15px;
+            }
+        }
+    }
+}
