@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const fetchItems = createAsyncThunk('sort/fetchItems', async (params) => {
-  const {linkType, linkSort} = params
-  const { data } = await axios.get(`https://62fe842e41165d66bfc1aab6.mockapi.io/Items?${linkType}&${linkSort}`)
+  const { linkType, linkSort, currentPage } = params
+  const { data } = await axios.get(`https://62fe842e41165d66bfc1aab6.mockapi.io/Items?${linkType}&${linkSort}&limit=9&page=${currentPage}`)
   return data
 })
 
@@ -12,7 +12,8 @@ const initialState = {
   searchValue: '',
   categoryId: 0,
   sortId: 0,
-  status: 'loading'
+  status: 'loading',
+  currentPage: 1,
 }
 
 export const sortSlice = createSlice({
@@ -27,6 +28,15 @@ export const sortSlice = createSlice({
     },
     setSortId: (state, action) => {
       state.sortId = action.payload
+    },
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload
+    },
+    minusCurrentPage: (state) => {
+      state.currentPage = state.currentPage-=1
+    },
+    plusCurrentPage: (state) => {
+      state.currentPage = state.currentPage+=1
     },
   },
   extraReducers: {
@@ -51,6 +61,6 @@ export const sortSlice = createSlice({
 })
 
 
-export const { setSearchValue, setCategoryId, setSortId, addToStorage } = sortSlice.actions
+export const { setSearchValue, setCategoryId, setSortId, addToStorage, setCurrentPage, minusCurrentPage ,plusCurrentPage } = sortSlice.actions
 
 export default sortSlice.reducer

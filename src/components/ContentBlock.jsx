@@ -11,7 +11,7 @@ const sortList = ['title', 'rating', 'price']
 
 const ContentBlock = ( ) => {
     const dispatch = useDispatch()
-    const { searchValue, categoryId, sortId, items, status } = useSelector(state => state.sort)
+    const { searchValue, categoryId, sortId, items, status, currentPage } = useSelector(state => state.sort)
 
     const getItems = async () => {
         const linkType = categoryId ? `type=${categories[categoryId]}` : ''
@@ -21,13 +21,14 @@ const ContentBlock = ( ) => {
             fetchItems({
                 linkType,
                 linkSort,
+                currentPage,
             }),
         );
     }
 
     useEffect(() => {
         getItems()
-    }, [categoryId, sortList, sortId])
+    }, [categoryId, sortList, sortId, currentPage])
 
     // optional
     if (status === 'error') {

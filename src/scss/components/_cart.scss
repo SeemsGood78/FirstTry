@@ -70,7 +70,7 @@
             border-right: 1px solid $lgray;
             height: 138px;
 
-            &>a {
+            &>button {
                 position: absolute;
                 display: block;
                 top: 50%;
@@ -80,6 +80,8 @@
                 height: 18px;
                 border-radius: 50%;
                 background-color: #f1f1f1;
+                border: none;
+                cursor: pointer;
 
                 &:hover::after {
                     background-color: $dargrey;

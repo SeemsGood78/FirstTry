@@ -13,7 +13,7 @@ const CartItem = ({item}) => {
     return (
         <div className="cart-leftblock-item">
             {/* bug */}
-            <a href="" onClick={ () => onClickRemove(item.id) }></a>
+            <button href="" onClick={ () => onClickRemove(item.id) }></button>
             <div className="cart-leftblock-item-namecol">
                 <div className="cart-leftblock-item-namecol-img">
                     <a href="">
