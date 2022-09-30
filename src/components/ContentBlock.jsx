@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchItems } from "../redux/slices/sortSlice";
 
 import ContentItem from "./ContentItem";
+import Pagination from "./Pagination";
 import Skeleton from "./Skeleton";
 
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
@@ -52,6 +53,7 @@ const ContentBlock = ( ) => {
                             ))
                     }
                 </div>
+                <Pagination />
             </div>
         </>
     )

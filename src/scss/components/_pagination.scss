@@ -1,0 +1,27 @@
+.pagination {
+    display: flex;
+    margin-left: 10px;
+
+    & div,
+    button {
+        margin: 10px 5px;
+        padding: 5px 10px;
+        border: 1px solid black;
+        border-radius: 8px;
+        transition: 0.3s;
+        cursor: pointer;
+        color: black;
+        background: transparent;
+    }
+
+    & div:hover,
+    button:hover {
+        color: white;
+        background: black;
+    }
+}
+
+.active {
+    color: white!important;
+    background: black!important;
+}
