@@ -9,6 +9,7 @@ const Header = () => {
     const { items, totalPrice } = useSelector(state => state.cart)
     const [headerSearch, setHeaderSearch] = useState('')
     const isMounted = useRef(false)
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         // проверка на первый рендер компонента
@@ -41,7 +42,7 @@ const Header = () => {
                                     Pivoslav
                                 </Link>
                             </div>
-                            <div className="forMobile"><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/menu.png" alt="" /></div>
+                            <div className='forMobile' onClick={ () => setIsOpen(!isOpen)}><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/menu.png" alt="" /></div>
                             <div className="top-banner-search">
                                 <input
                                     value={headerSearch}
@@ -78,6 +79,14 @@ const Header = () => {
                     </div>
                 </div>
             </header>
+            <nav className={isOpen?'nav nav-open':'nav'}>
+                <div className="navbar">
+                    <div className="navbar-item">1</div>
+                    <div className="navbar-item">2</div>
+                    <div className="navbar-item">3</div>
+                </div>
+                <div className="nav-overlay" onClick={ () => setIsOpen(!isOpen)}></div>
+            </nav>
         </div>
     )
 }
