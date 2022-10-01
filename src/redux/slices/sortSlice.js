@@ -2,11 +2,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const fetchItems = createAsyncThunk('sort/fetchItems', async (params) => {
-  const { linkType, linkSort, currentPage } = params
-  const { data } = await axios.get(`https://62fe842e41165d66bfc1aab6.mockapi.io/Items?${linkType}&${linkSort}&limit=9&page=${currentPage}`)
+  const { linkType, linkSort } = params
+  const { data } = await axios.get(`https://62fe842e41165d66bfc1aab6.mockapi.io/Items?${linkType}&${linkSort}`)
+  // https://62fe842e41165d66bfc1aab6.mockapi.io/Items?${linkType}&${linkSort}&limit=9&${linkPage}
   return data
 })
 
+export const itemsPerPage = 9
+ 
 const initialState = {
   items: [],
   searchValue: '',
@@ -14,6 +17,8 @@ const initialState = {
   sortId: 0,
   status: 'loading',
   currentPage: 1,
+  fromItem: 0,
+  toItem: itemsPerPage
 }
 
 export const sortSlice = createSlice({
@@ -31,12 +36,18 @@ export const sortSlice = createSlice({
     },
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload
+      state.fromItem = (itemsPerPage * (action.payload - 1))
+      state.toItem = (itemsPerPage * action.payload)
     },
     minusCurrentPage: (state) => {
       state.currentPage = state.currentPage-=1
+      state.fromItem = state.fromItem -=itemsPerPage
+      state.toItem = state.toItem -=itemsPerPage
     },
     plusCurrentPage: (state) => {
       state.currentPage = state.currentPage+=1
+      state.fromItem = state.fromItem +=itemsPerPage
+      state.toItem = state.toItem +=itemsPerPage
     },
   },
   extraReducers: {
