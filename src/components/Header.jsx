@@ -86,13 +86,24 @@ const Header = () => {
                             <div className="separate">
                                 <span className="navbar-item-logo">Pivoslav</span>
                                 <span>
-                                    <img className="xmark" src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross4sidemenu.png" alt="" />
+                                    <img className="xmark" onClick={() => setIsOpen(!isOpen)} src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross4sidemenu.png" alt="" />
                                 </span>
                             </div>
                         </div>
-                    <div className="navbar-item">2</div>
+                        <div className="navbar-item">
+                            <div className="navbar-item-autorize">
+                                <img className="autorizeIcon" src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/AutorizeIcon.png" alt="" />
+                                <div className="navbar-item-autorize-options">
+                                    <div>
+                                        <button>Log in</button>
+                                        <button>Registration</button>
+                                    </div>
+                                    <p>Please log in for more options</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="navbar-item">3</div>
+                    <div className="navbar-item">cart</div>
                 </div>
                 <div className="nav-overlay" onClick={() => setIsOpen(!isOpen)}></div>
             </nav>

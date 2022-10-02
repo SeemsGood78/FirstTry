@@ -81,9 +81,40 @@ body {
         background: transform 0.2s;
 
         &-logo {
-            font-size: 27px;
+            font-size: 24px;
             color: $whit;
             font-weight: 700;
+        }
+        &-autorize{
+            display: flex;
+            align-items: center;
+            column-gap: 16px;
+            padding: 6px;
+
+            &-options{
+                &>div{
+                    display: flex;
+                    margin-bottom: 3px;
+                }
+                &>p{
+                    font-size: 14px;
+                    color: $gra;
+                }
+                &>div button{
+                    background-color: $bldar;
+                    color: $whit;
+                    border: none;
+                    font-size: 14px;
+
+                }
+                &>div button:last-child{
+                    padding-left: 14px;
+                    border-left: 1px solid $whit;
+                }
+                &>div button:first-child{
+                    padding-right: 14px;
+                }
+            }
         }
     }
 }
@@ -98,6 +129,10 @@ body {
         background-color: $oran  !important;
         cursor: not-allowed !important;
     }
+}
+.autorizeIcon{
+    height: 40px;
+    width: 40px;
 }
 .xmark{
     height: 12px;
