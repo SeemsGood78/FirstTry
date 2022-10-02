@@ -42,7 +42,7 @@ const Header = () => {
                                     Pivoslav
                                 </Link>
                             </div>
-                            <div className='forMobile' onClick={ () => setIsOpen(!isOpen)}><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/menu.png" alt="" /></div>
+                            <div className='forMobile' onClick={() => setIsOpen(!isOpen)}><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/menu.png" alt="" /></div>
                             <div className="top-banner-search">
                                 <input
                                     value={headerSearch}
@@ -79,13 +79,22 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-            <nav className={isOpen?'nav nav-open':'nav'}>
+            <nav className={isOpen ? 'nav nav-open' : 'nav'}>
                 <div className="navbar">
-                    <div className="navbar-item">1</div>
+                    <div className="sidebg">
+                        <div className="navbar-item">
+                            <div className="separate">
+                                <span className="navbar-item-logo">Pivoslav</span>
+                                <span>
+                                    <img className="xmark" src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png" alt="" />
+                                </span>
+                            </div>
+                        </div>
                     <div className="navbar-item">2</div>
+                    </div>
                     <div className="navbar-item">3</div>
                 </div>
-                <div className="nav-overlay" onClick={ () => setIsOpen(!isOpen)}></div>
+                <div className="nav-overlay" onClick={() => setIsOpen(!isOpen)}></div>
             </nav>
         </div>
     )

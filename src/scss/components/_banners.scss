@@ -1,5 +1,7 @@
-body{
-    --header-height: 56px;
+body {
+    @media (max-width:650px) {
+        --header-height: 56px;
+    }
 
     margin: var(--header-height) 0 0 0;
 }
@@ -21,20 +23,23 @@ body{
     }
 }
 
-.forMobile{
-    display:none;
-    @media (max-width:650px){
+.forMobile {
+    display: none;
+
+    @media (max-width:650px) {
         display: block;
         height: 32px;
         cursor: pointer;
-        &>img{
+
+        &>img {
             height: 32px;
             width: 32px;
         }
     }
 }
-.nav{
-    &-overlay{
+
+.nav {
+    &-overlay {
         position: fixed;
         left: 0;
         top: 0;
@@ -48,15 +53,18 @@ body{
         z-index: 3;
     }
 }
-.nav-open .nav-overlay{
+
+.nav-open .nav-overlay {
     visibility: visible;
     opacity: 1;
 }
-.nav-open .navbar{
+
+.nav-open .navbar {
     transform: translateX(0);
     box-shadow: 0 0 15 rgba(0, 0, 0, 0.2);
 }
-.navbar{
+
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -67,22 +75,37 @@ body{
     transform: translateX(-250px);
     transition: transform 0.3s;
 
-    &-item{
-        display: flex;
-        align-items: center;
-        font-weight: bold;
+    &-item {
         font-size: 14px;
         padding: 12px 15px;
         background: transform 0.2s;
-    }
-}
-.albert{
-    &:hover {
-        background-color: $oran !important;
-        cursor: not-allowed !important ;
-    }
-}
 
+        &-logo {
+            font-size: 27px;
+            color: $whit;
+            font-weight: 700;
+        }
+    }
+}
+.separate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+.albert {
+    &:hover {
+        background-color: $oran  !important;
+        cursor: not-allowed !important;
+    }
+}
+.xmark{
+    height: 12px;
+    width: 12px;
+}
+.sidebg{
+    background-color: $bldar;
+}
 .top-banner {
 
     justify-content: space-between;
@@ -97,6 +120,7 @@ body{
         min-height: auto;
         padding-left: 0px;
         padding-right: 0px;
+
         .top-banner-search {
             margin: auto;
         }
@@ -279,9 +303,7 @@ body{
 }
 
 .bottom-banner {
-    @media (max-width:1280px) {
-       
-    }
+    @media (max-width:1280px) {}
 
     &>div>ul {
         display: flex;
