@@ -86,7 +86,7 @@ const Header = () => {
                             <div className="separate">
                                 <span className="navbar-item-logo">Pivoslav</span>
                                 <span>
-                                    <img className="xmark" src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross.png" alt="" />
+                                    <img className="xmark" src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/cross4sidemenu.png" alt="" />
                                 </span>
                             </div>
                         </div>
