@@ -21,7 +21,7 @@ const Footer = () => {
                                 </ul>
                             </div>
                             <div className="inside-leftside-footercol">
-                                <p>GOOD WINE
+                                <p>Pivoslav
                                 </p>
                                 <ul>
                                     <li><a href="#">О нас</a></li>

@@ -30,6 +30,9 @@ export const sortSlice = createSlice({
     },
     setCategoryId: (state, action) => {
       state.categoryId = action.payload
+      state.fromItem = 0
+      state.toItem = itemsPerPage
+      state.currentPage = 1
     },
     setSortId: (state, action) => {
       state.sortId = action.payload

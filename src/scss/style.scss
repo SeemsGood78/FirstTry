@@ -74,12 +74,12 @@ li {
 }
 
 .top-banner {
-
+    
     justify-content: space-between;
     display: flex;
     align-items: center;
     padding: 10px;
-    min-height: 72px;
+    min-height: 172px;
 
 
     @media (max-width:1280px) {
@@ -109,7 +109,7 @@ li {
         display: flex;
         border: none;
         position: relative;
-
+        
         @media (max-width:650px) {
             max-width: 66%;
         }
@@ -118,7 +118,7 @@ li {
         // rework
         &>span {
             position: absolute;
-            cursor: pointer;
+            cursor: text;
             margin: auto;
             right: 80px;
             padding: 10px;
@@ -188,13 +188,18 @@ li {
     }
 
     &-cab {
+        //problem
+        color: red;
         @media (max-width:620px) {
             display: none;
         }
 
-        &>p>a {
+        & p{
             font-size: 18px;
-            color: $lgray;
+            color: $whit;
+            & a{
+                color: $whit;
+            }
         }
 
         &>span {
@@ -1352,4 +1357,8 @@ footer {
 
 .display-none{
     display: none;
+}
+.top-banner-cabbd{
+    color: red;
+    height: 25px;
 }

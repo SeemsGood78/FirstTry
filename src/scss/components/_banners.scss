@@ -20,6 +20,20 @@ body {
         min-height: 56px;
         left: 0;
         display: flex;
+        flex-wrap: nowrap;
+    }
+}
+
+.end {
+    @media (max-width:650px) {
+        margin-left: 15px;
+        margin-right: 0px !important;
+    }
+}
+
+.start {
+    @media (max-width:650px) {
+        margin-right: 15px;
     }
 }
 
@@ -81,66 +95,79 @@ body {
         background: transform 0.2s;
 
         &-logo {
-            font-size: 24px;
-            color: $whit;
-            font-weight: 700;
+            &>a {
+                font-size: 24px;
+                color: $whit;
+                font-weight: 700;
+            }
         }
-        &-autorize{
+
+        &-autorize {
             display: flex;
             align-items: center;
             column-gap: 16px;
             padding: 6px;
 
-            &-options{
-                &>div{
+            &-options {
+                &>div {
                     display: flex;
                     margin-bottom: 3px;
                 }
-                &>p{
-                    font-size: 14px;
+
+                &>p {
+                    font-size: 14mediapx;
                     color: $gra;
                 }
-                &>div button{
+
+                &>div button {
                     background-color: $bldar;
                     color: $whit;
                     border: none;
                     font-size: 14px;
 
                 }
-                &>div button:last-child{
+
+                &>div button:last-child {
                     padding-left: 14px;
                     border-left: 1px solid $whit;
                 }
-                &>div button:first-child{
+
+                &>div button:first-child {
                     padding-right: 14px;
                 }
             }
         }
     }
 }
-.separate{
+
+.separate {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 100%;
 }
+
 .albert {
     &:hover {
-        background-color: $oran  !important;
+        background-color: $oran !important;
         cursor: not-allowed !important;
     }
 }
-.autorizeIcon{
+
+.autorizeIcon {
     height: 40px;
     width: 40px;
 }
-.xmark{
+
+.xmark {
     height: 12px;
     width: 12px;
 }
-.sidebg{
+
+.sidebg {
     background-color: $bldar;
 }
+
 .top-banner {
 
     justify-content: space-between;
@@ -149,6 +176,10 @@ body {
     padding: 10px;
     min-height: 72px;
 
+
+    @media (max-width:620px) {
+        flex-wrap: nowrap !important;
+    }
 
     @media (max-width:1280px) {
         flex-wrap: wrap;
@@ -180,7 +211,7 @@ body {
         position: relative;
 
         @media (max-width:650px) {
-            max-width: 66%;
+            max-width: 100%;
         }
 
 
@@ -257,18 +288,20 @@ body {
     }
 
     &-cab {
-        @media (max-width:620px) {
-            display: none;
-        }
+        &>a {
+            @media (max-width:620px) {
+                display: none;
+            }
 
-        &>p>a {
-            font-size: 18px;
-            color: $lgray;
-        }
+            &>p>a {
+                font-size: 18px;
+                color: $lgray;
+            }
 
-        &>span {
-            font-size: 18px;
-            color: $whit;
+            &>span {
+                font-size: 18px;
+                color: $whit;
+            }
         }
     }
 

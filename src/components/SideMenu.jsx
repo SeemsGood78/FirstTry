@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
 
 const SideMenu = () => {
-    const [isShown, setIsShown] = useState(true)
-    // smooth scroll hiding
-    // затенение карточки товара
+    const [isOpenPrice, setIsOpenPrice] = useState(true)
+    const [isOpen, setIsOpen] = useState(true)
+    const {items} = useSelector((state) => state.sort)
+    const prices = items.map( item => (item.price))       
 
     return (
         <>
@@ -11,9 +14,9 @@ const SideMenu = () => {
                 <div className="content-leftblock-Filter">
                     <span>
                         Price
-                        <i className="hidefilter"></i>
+                        <i className="hidefilter" onClick={() => setIsOpenPrice(!isOpenPrice)}></i>
                     </span>
-                    <div className="content-leftblock-Filter-price">
+                    <div className={isOpenPrice ? 'content-leftblock-Filter-price open' : 'content-leftblock-Filter-price'}>
                         <div className="content-leftblock-Filter-price-el">
                             <div className="content-leftblock-Filter-price-el-selectPrice">
                                 <input type="text" placeholder="from" />
@@ -44,12 +47,10 @@ const SideMenu = () => {
 
                 <div className="content-leftblock-Filter">
                     <span>Bottle size
-                        <i onClick={() => setIsShown(!isShown)} className="hidefilter">
+                        <i className="hidefilter" onClick={() => setIsOpen(!isOpen)}>
                         </i>
                     </span>
-                    {isShown
-                        ?
-                        <><div>
+                        <div className={isOpen ? 'acc open' : 'acc'}> 
                             <div className="content-leftblock-Filter-box">
                                 <p className="chebox">
                                     <input type="checkbox" id="1" />
@@ -72,10 +73,6 @@ const SideMenu = () => {
                                 <span>1</span>
                             </div>
                         </div>
-                        </>
-                        :
-                        <></>
-                    }
                 </div>
             </div>
         </>

@@ -1,0 +1,63 @@
+.regblock {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+    align-items: center;
+    padding-top: 25px;
+    max-width: 800px;
+    min-width: 800px;
+    background: $bldar;
+    &>form {
+        padding: 15px 40px 15px;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        &>div{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 35px 0;
+            margin-bottom: 15px;
+            &>input{
+                height: 45px;
+                width: 45%;
+                padding: 0 15px 0;
+                outline: none;
+                border-radius: 5px;
+                font-size: 18px;
+                font-weight: 500;
+            }
+            &>button{
+                height: 45px;
+                width: 45%;
+                padding: 0 15px 0;
+                outline: none;
+                border-radius: 5px;
+                font-size: 18px;
+                font-weight: 500;
+                background-color: $whit;
+                cursor: pointer;
+            }
+            &>span{
+                display: flex;
+                align-items: center;
+                &>input{
+                    height: 20px;
+                    width: 20px;
+                }
+                &>span{
+                    margin-left: 10px;
+                    color:$lgray;
+                }
+            }
+        }
+    }
+    &>h2{
+        color: $lgray;
+        font-size: 26px;
+    }
+}
+.alignc{
+    align-self: center;
+}

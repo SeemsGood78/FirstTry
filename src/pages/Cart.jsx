@@ -18,6 +18,7 @@ const Cart = () => {
 
     return (
         <>
+        <h1 className="cartLabel">Cart</h1>
             <div className="container try">
                 <div className="cart">
                     <div className="cart-leftblock">

@@ -42,7 +42,13 @@
             }
 
             &-price {
-                padding-bottom: 30px;
+                height: 0;
+                overflow: hidden;
+                transition: height ease 0.4s;
+
+                & .open {
+                    height: auto;
+                }
 
                 &-el {
                     position: relative;
@@ -219,6 +225,7 @@
                         border: none;
                         cursor: pointer;
                         transition: 0.4s;
+
                         &:hover {
                             background: #08131f;
                         }
@@ -364,6 +371,7 @@
                             border-width: 5px 4px 5px 4px;
                             top: 3px;
                             right: 0;
+                            transition: 0.4s;
                         }
 
                         &:hover {
@@ -542,6 +550,20 @@ label[class=checked] {
         left: 5px;
         top: 5px;
     }
+}
+
+.content-leftblock-Filter-price.open {
+    height: 127px;
+}
+
+.acc {
+    height: 0;
+    overflow: hidden;
+    transition: height ease 0.4s;
+}
+
+.acc.open {
+    height: 84px;
 }
 
 // //////////////////////////////////////////////////////////////////////////////////////////

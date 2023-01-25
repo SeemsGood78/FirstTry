@@ -1,4 +1,20 @@
+.cartLabel {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-size: 25px;
+    line-height: 20px;
+    padding-left: 15px;
+
+    @media (min-width:620px) {
+        display: none;
+    }
+}
+
 .cart {
+    @media (max-width:620px) {
+        border: 1px solid $lgray ;
+        padding: 15px;
+    }
 
     &-leftblock {
         display: flex;
@@ -6,6 +22,11 @@
         max-width: 800px;
         border-left: 1px solid $lgray ;
         margin-top: 80px;
+
+        @media (max-width:620px) {
+            margin-top: 0px !important;
+            border: none;
+        }
 
         &-noItems {
             height: 400px;
@@ -26,6 +47,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            @media (max-width:1220px) {
+                display: none;
+            }
 
             &>button {
                 padding-right: 25px;
@@ -72,6 +97,12 @@
             display: flex;
             border-right: 1px solid $lgray;
             height: 138px;
+
+            @media (max-width:620px) {
+                border: none !important;
+                flex-wrap: wrap;
+                height: auto !important;
+            }
 
             &>button {
                 position: absolute;
@@ -123,7 +154,7 @@
             }
 
             &-namecol {
-                width: 400px;
+                width: 50%;
                 display: flex;
 
                 &-img {
@@ -145,6 +176,7 @@
                 }
 
                 &-text {
+
                     &>span {
                         font-size: 14px;
                         display: block;
@@ -185,8 +217,11 @@
             }
 
             &-capacitycol {
+                @media (max-width:620px) {
+                    width: 25%;
+                }
 
-                width: 90px;
+                width: 13%;
 
                 &>p {
                     font-size: 17px;
@@ -196,7 +231,11 @@
             }
 
             &-price4one {
-                width: 90px;
+                width: 13%;
+
+                @media (max-width:620px) {
+                    width: 25%;
+                }
 
                 &>p {
                     font-size: 17px;
@@ -204,9 +243,12 @@
             }
 
             &-quantitycol {
-                width: 90px;
+                width: 12%;
                 text-align: center;
-
+                @media (max-width:620px) {
+                    width: auto;
+                    margin-top: 25px;
+                }
                 &>div {
                     width: 95px;
 
@@ -311,10 +353,14 @@
             }
 
             &-totalcol {
-                width: 90px;
+                width: 12%;
                 text-align: right;
                 margin-right: 15px;
-
+                @media (max-width:620px) {
+                    width: auto;
+                    margin-top: 25px;
+                    margin-left: auto;
+                }
                 &>p {
                     font-size: 17px;
                 }
@@ -330,6 +376,10 @@
             display: flex;
             border-right: 1px solid $lgray;
 
+            @media (max-width:620px) {
+                display: none;
+            }
+
             &>div>span {
                 color: $bl;
                 font-size: 14px;
@@ -338,24 +388,24 @@
             }
 
             &-name {
-                width: 400px;
+                width: 50%;
             }
 
             &-capacity {
-                width: 90px;
+                width: 13%;
             }
 
             &-price {
-                width: 90px;
+                width: 13%;
             }
 
             &-quantity {
-                width: 90px;
+                width: 12%;
                 text-align: center;
             }
 
             &-total {
-                width: 90px;
+                width: 12%;
                 text-align: right;
                 margin-right: 15px;
             }
