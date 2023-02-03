@@ -1,10 +1,11 @@
-body {
-    @media (max-width:650px) {
-        --header-height: 56px;
-    }
 
-    margin: var(--header-height) 0 0 0;
-}
+// body {
+//     @media (max-width:650px) {
+//         --header-height: 56px;
+//     }
+
+//     margin: var(--header-height) 0 0 0;
+// }
 
 
 
@@ -265,7 +266,7 @@ body {
             outline: none;
             font-weight: 400;
             border-radius: 0;
-            cursor: pointer;
+            cursor: text;
 
             &::placeholder {
                 color: $bl;
@@ -420,4 +421,7 @@ li.withInnerMenu>a::after {
     border-width: 5px 4px 5px 4px;
     right: 0;
     top: 8px;
+}
+.nav{
+    background-color: green !important;
 }

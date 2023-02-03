@@ -14,7 +14,7 @@
         width: 100%;
         margin-top: 15px;
         margin-bottom: 15px;
-        &>div{
+        &>label{
             display: flex;
             justify-content: space-between;
             padding: 0 35px 0;
@@ -26,18 +26,7 @@
                 outline: none;
                 border-radius: 5px;
                 font-size: 18px;
-                font-weight: 700;
-            }
-            &>button{
-                height: 45px;
-                width: 45%;
-                padding: 0 15px 0;
-                outline: none;
-                border-radius: 5px;
-                font-size: 18px;
                 font-weight: 500;
-                background-color: $whit;
-                cursor: pointer;
             }
             &>span{
                 display: flex;
@@ -57,6 +46,17 @@
         color: $lgray;
         font-size: 26px;
     }
+}
+.buttons{
+    height: 45px;
+    width: 45%;
+    padding: 0 15px 0;
+    outline: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600 !important;
+    background-color: $whit;
+    cursor: pointer;
 }
 .alignc{
     align-self: center;

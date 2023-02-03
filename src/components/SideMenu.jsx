@@ -1,13 +1,25 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilterPrice, reset, setFilterVolume} from "../redux/slices/filterSlice";
 
 
 const SideMenu = () => {
+    const dispatch = useDispatch()
     const [isOpenPrice, setIsOpenPrice] = useState(true)
     const [isOpen, setIsOpen] = useState(true)
-    const {items} = useSelector((state) => state.sort)
-    const prices = items.map( item => (item.price))       
+    const { items } = useSelector((state) => state.sort)
+    const prices = items.map(item => (item.price))
+    const [price, setPrice] = useState({ min: 0, max: 0 })
+    const [volume, setVolume] = useState(0)
 
+    function Test() {
+        dispatch(setFilterPrice({min: 0, max: 100}))
+    } 
+    function Try() {
+        dispatch(setFilterVolume(0.33))
+    } 
+
+    console.log(price)
     return (
         <>
             <div className="content-leftblock">
@@ -19,25 +31,45 @@ const SideMenu = () => {
                     <div className={isOpenPrice ? 'content-leftblock-Filter-price open' : 'content-leftblock-Filter-price'}>
                         <div className="content-leftblock-Filter-price-el">
                             <div className="content-leftblock-Filter-price-el-selectPrice">
-                                <input type="text" placeholder="from" />
-                                <input type="text" placeholder="to" />
-                                <input type="submit" value="OK" />
+                                <input
+                                    type="number"
+                                    placeholder="from"
+                                    value={price.min}
+                                    onChange={(e) => setPrice((prev) => ({ ...prev, ["min"]: e.target.value }))}
+                                />
+                                <input
+                                    type="number"
+                                    min='0'
+                                    placeholder="to"
+                                    value={price.max}
+                                    onChange={(e) => setPrice((prev) => ({ ...prev, ["max"]: e.target.value }))}
+                                />
+                                <input
+                                    type="submit"
+                                    value="OK"
+                                    onClick={() => dispatch(setFilterPrice(price))}
+                                />
                             </div>
                         </div>
                         <div className="content-leftblock-Filter-price-el">
                             <p>
+                                <input type="radio" name="price" 
+                                onChange={() => Test()}
+                                />
                                 <label htmlFor="price-100">0 - 100</label>
                             </p>
                             <span>5</span>
                         </div>
                         <div className="content-leftblock-Filter-price-el">
                             <p>
+                                <input type="radio" name="price" />
                                 <label htmlFor="price-100,200">100 - 200</label>
                             </p>
                             <span>1</span>
                         </div>
                         <div className="content-leftblock-Filter-price-el">
                             <p>
+                                <input type="radio" name="price" />
                                 <label htmlFor="price-200">200 or more </label>
                             </p>
                             <span>1</span>
@@ -50,30 +82,37 @@ const SideMenu = () => {
                         <i className="hidefilter" onClick={() => setIsOpen(!isOpen)}>
                         </i>
                     </span>
-                        <div className={isOpen ? 'acc open' : 'acc'}> 
-                            <div className="content-leftblock-Filter-box">
-                                <p className="chebox">
-                                    <input type="checkbox" id="1" />
-                                    <label htmlFor="1">0.33</label>
-                                </p>
-                                <span>1</span>
-                            </div>
-                            <div className="content-leftblock-Filter-box">
-                                <p className="chebox">
-                                    <input type="checkbox" id="2" />
-                                    <label htmlFor="2">0.5</label>
-                                </p>
-                                <span>5</span>
-                            </div>
-                            <div className="content-leftblock-Filter-box">
-                                <p className="chebox">
-                                    <input type="checkbox" id="3" />
-                                    <label htmlFor="3">0.75</label>
-                                </p>
-                                <span>1</span>
-                            </div>
+                    <div className={isOpen ? 'acc open' : 'acc'}>
+                        <div className="content-leftblock-Filter-box">
+                            <p className="chebox">
+                                <input type="checkbox" id="1"
+                                    onChange = { () => Try()}
+                                />
+                                <label htmlFor="1">0.33</label>
+                            </p>
+                            <span>1</span>
                         </div>
+                        <div className="content-leftblock-Filter-box">
+                            <p className="chebox">
+                                <input type="checkbox" id="2" />
+                                <label htmlFor="2">0.5</label>
+                            </p>
+                            <span>5</span>
+                        </div>
+                        <div className="content-leftblock-Filter-box">
+                            <p className="chebox">
+                                <input type="checkbox" id="3" />
+                                <label htmlFor="3">0.75</label>
+                            </p>
+                            <span>1</span>
+                        </div>
+                    </div>
                 </div>
+                <button
+                    className="resetButton"
+                    onClick={() => dispatch(reset())}
+                >Reset
+                </button>
             </div>
         </>
     )

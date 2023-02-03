@@ -63,7 +63,7 @@ const Header = () => {
                                     <div className="forMobile"><img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/shopping-cart.png" alt="" /></div>
                                 </Link>
                             </div>
-                            <div className="top-banner-cabbd">
+                            <div className="top-banner-cab">
                                     <p><Link to={'/reg'}>Log in</Link> | <Link to={'/reg'}>Sign up</Link></p>
                                     <span>Kab</span>
                             </div>

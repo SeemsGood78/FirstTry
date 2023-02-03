@@ -18,7 +18,8 @@ const initialState = {
   status: 'loading',
   currentPage: 1,
   fromItem: 0,
-  toItem: itemsPerPage
+  toItem: itemsPerPage,
+  filtredItems: [],
 }
 
 export const sortSlice = createSlice({
@@ -52,6 +53,9 @@ export const sortSlice = createSlice({
       state.fromItem = state.fromItem +=itemsPerPage
       state.toItem = state.toItem +=itemsPerPage
     },
+    setfiltredItems: (state, action) => {
+      state.filtredItems = action.payload
+    }
   },
   extraReducers: {
     //get items from api
@@ -64,6 +68,7 @@ export const sortSlice = createSlice({
       const available = action.payload.filter(item => item.isAvailable)
       const unAvailable = action.payload.filter(item => !item.isAvailable)
       state.items = [...available, ...unAvailable]
+      state.filtredItems = [...available, ...unAvailable]
       state.status = 'loaded'
     },
     [fetchItems.rejected]: (state) => {
@@ -75,6 +80,6 @@ export const sortSlice = createSlice({
 })
 
 
-export const { setSearchValue, setCategoryId, setSortId, addToStorage, setCurrentPage, minusCurrentPage ,plusCurrentPage } = sortSlice.actions
+export const { setSearchValue, setCategoryId, setSortId, addToStorage, setCurrentPage, minusCurrentPage ,plusCurrentPage, setfiltredItems } = sortSlice.actions
 
 export default sortSlice.reducer
