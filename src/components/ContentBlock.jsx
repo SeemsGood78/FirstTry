@@ -47,7 +47,7 @@ const ContentBlock = ( ) => {
             item.title.toLowerCase().includes(searchValue.toLowerCase()) 
             && item.price > minPrice 
             && item.price < maxPrice
-            && (volume !== undefined && item.volume === volume)
+            // && (volume !== undefined && item.volume === volume)
         ))
         .slice(fromItem, toItem)
         dispatch(setfiltredItems(res))
