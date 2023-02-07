@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setFilterPrice, reset, setFilterVolume} from "../redux/slices/filterSlice";
 
 
@@ -7,10 +7,10 @@ const SideMenu = () => {
     const dispatch = useDispatch()
     const [isOpenPrice, setIsOpenPrice] = useState(true)
     const [isOpen, setIsOpen] = useState(true)
-    const { items } = useSelector((state) => state.sort)
-    const prices = items.map(item => (item.price))
+    // const { items } = useSelector((state) => state.sort)
+    // const prices = items.map(item => (item.price))
     const [price, setPrice] = useState({ min: 0, max: 0 })
-    const [volume, setVolume] = useState(0)
+    // const [volume, setVolume] = useState(0)
 
     function Test() {
         dispatch(setFilterPrice({min: 0, max: 100}))
@@ -35,14 +35,14 @@ const SideMenu = () => {
                                     type="number"
                                     placeholder="from"
                                     value={price.min}
-                                    onChange={(e) => setPrice((prev) => ({ ...prev, ["min"]: e.target.value }))}
+                                    onChange={(e) => setPrice((prev) => ({ ...prev, "min": e.target.value }))}
                                 />
                                 <input
                                     type="number"
                                     min='0'
                                     placeholder="to"
                                     value={price.max}
-                                    onChange={(e) => setPrice((prev) => ({ ...prev, ["max"]: e.target.value }))}
+                                    onChange={(e) => setPrice((prev) => ({ ...prev, "max": e.target.value }))}
                                 />
                                 <input
                                     type="submit"

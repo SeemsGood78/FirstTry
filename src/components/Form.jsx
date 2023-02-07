@@ -1,63 +1,55 @@
-import React, {useState } from "react"
+import React, { useState } from "react"
+
+const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+
+const disableLatters = (e, setName) => {
+    const result = e.target.value.replace(/[^a-z]/gi, '');
+    setName(result);
+};
 
 const Form = () => {
-    const [messageName, setMessageName] = useState('');
-    const [message, setMessage] = useState('');
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
     const [nameError, setNameError] = useState('');
     const [nameTouched, setNameTouched] = useState(false);
     const [surnameTouched, setSurnameTouched] = useState(false);
 
-    const disableLatters = (e,mess) => {
-        const result = e.target.value.replace(/[^a-z]/gi, '');
-        mess(result);
-    };
+    const onChangeHandler = (e, setName, setErrors) => {
+        const { name, value } = e.target;
+        disableLatters(e, setName)
 
-    const onChangeHandler = (e,name,mess) => {
-
-        disableLatters(e,mess)
-
-        if (e.target.value.length === 0) {
+        if (value.length === 0) {
             setNameError(`${name} can't be empty`)
         }
-        else if (e.target.value.length > 8) {
+        else if (value.length > 8) {
             setNameError(`${name} field is too long`)
         }
-        else if (e.target.value.length < 2) {
+        else if (value.length < 2) {
             setNameError(`${name} field is too short`)
         }
         else setNameError(undefined)
     }
 
-    // const Ole = () => {
-    //     setSurnameTouched(true)
-
-    // }
-
-    const capitalize = str => {
-        return (
-          str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
-        );
-      };
-
-    const prevent = (e) => {
-        e.preventDefault()
-    }
 
     return (
         <>
             <h2>Get in touch!</h2>
-            <form action="">
+            <form>
                 <label>
                     <input
-                        type="text" placeholder="Name" 
-                        value={capitalize(messageName)}
-                        onChange={e => onChangeHandler(e, 'Name',setMessageName)}
+                        type="text"
+                        placeholder="Name"
+                        value={capitalize(name)}
+                        name='name'
+                        onChange={e => onChangeHandler(e, setName)}
                         onBlur={() => setNameTouched(true)}
                     />
                     <input
-                        value={message}
-                        type="text" placeholder="Surname"
-                        onChange={e => onChangeHandler(e, 'Surname',setMessage)}
+                        type="text"
+                        placeholder="Surname"
+                        value={capitalize(surname)}
+                        // Сделать так что бы не передавали 'Surname'
+                        onChange={e => onChangeHandler(e, 'Surname', setSurname)}
                         onBlur={() => setSurnameTouched(true)}
                     />
                 </label>
@@ -67,8 +59,6 @@ const Form = () => {
                     <input type="text" name="email" placeholder="Email" />
                     <input type="text" placeholder="Phone" maxLength={13} />
                 </label>
-                {/* {(emailDirty && emailError) && <div className="error">{emailError}</div>}
-                {(passwordDirty && passwordError) && <div className="error">{passwordError}</div>} */}
                 <label>
                     <input type="text" name='password' placeholder="Password" />
                 </label>
@@ -80,7 +70,7 @@ const Form = () => {
                 </label>
                 <label>
                     <input className="buttons" type='reset' value="Reset" />
-                    <input className="buttons" type='submit' value="Submit" onClick={(e) => prevent()} />
+                    <input className="buttons" type='submit' value="Submit" onClick={(e) => e.preventDefault()} />
                 </label>
             </form>
         </>
