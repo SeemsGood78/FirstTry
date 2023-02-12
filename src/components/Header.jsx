@@ -64,7 +64,7 @@ const Header = () => {
                                 </Link>
                             </div>
                             <div className="top-banner-cab">
-                                    <p><Link to={'/reg'}>Log in</Link> | <Link to={'/reg'}>Sign up</Link></p>
+                                    <p><Link to={'/LogIn'}>Log in</Link> | <Link to={'/reg'}>Sign up</Link></p>
                                     <span>Kab</span>
                             </div>
                             <div className="top-banner-cart">

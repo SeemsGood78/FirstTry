@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Reg from "./pages/Reg"
+import LogIn from "./pages/LogIn";
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/reg" element={<Reg />} />
+        <Route path="/logIn" element={<LogIn />} />
       </Routes>
       <Footer />
     </BrowserRouter>

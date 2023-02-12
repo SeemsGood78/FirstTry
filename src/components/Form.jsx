@@ -7,7 +7,6 @@ const disableLatters = (e, cap) => {
     cap(result);
 };
 
-
 const Form = () => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
@@ -22,25 +21,49 @@ const Form = () => {
     const [phoneError, setPhoneError] = useState('');
     const [phoneTouched, setPhoneTouched] = useState(false);
     const [password, setPassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [passwordTouched, setPasswordTouched] = useState(false);
+    const [passwordShown, setPasswordShown] = useState(false);
 
-    const emailCheck = (e) =>{
+    const reset = () => {
+        setName('') 
+        setNameTouched(false)
+        setSurname('') 
+        setSurnameTouched(false)
+        setEmail('') 
+        setEmailTouched(false)
+        setPhone('') 
+        setPhoneTouched(false)
+        setPassword('') 
+        setPasswordTouched(false)
+    }
+
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+      };
+
+    const emailCheck = (e) => {
         setEmail(e.target.value)
-        if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email) === false){
+        if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email) === false) {
             setEmailError('Invalid email')
         }
         else setEmailError(undefined)
     }
 
-    const phoneCheck = (e) =>{
+    const phoneCheck = (e) => {
         setPhone(e.target.value)
-        if (/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(phone) === false){
+        if (/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(phone) === false) {
             setPhoneError('Invalid phone number')
         }
         else setPhoneError(undefined)
     }
 
-    const clearPassword = () => {
-        setPassword('')
+    const passwordCheck = (e) => {
+        setPassword(e.target.value)
+        if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password) === false) {
+            setPasswordError('At least 8 - 16 characters, must contain at least 1 uppercase letter, must contain at least 1 lowercase letter, and 1 number Can contain special characters')
+        }
+        else setPasswordError(undefined)
     }
 
     const onChangeHandler = (e, cap, Errors) => {
@@ -69,7 +92,7 @@ const Form = () => {
                         placeholder="Name"
                         value={capitalize(name)}
                         name='Name'
-                        onChange={e => onChangeHandler(e ,setName ,setNameError)}
+                        onChange={e => onChangeHandler(e, setName, setNameError)}
                         onBlur={() => setNameTouched(true)}
                     />
                     <input
@@ -77,45 +100,47 @@ const Form = () => {
                         placeholder="Surname"
                         name='Surname'
                         value={capitalize(surname)}
-                        onChange={e => onChangeHandler(e,setSurname ,setSurnameError)}
+                        onChange={e => onChangeHandler(e, setSurname, setSurnameError)}
                         onBlur={() => setSurnameTouched(true)}
                     />
                 </label>
                 {surnameTouched && surnameError && <div className="error">{surnameError}</div>}
                 {nameTouched && nameError && <div className="error">{nameError}</div>}
                 <label>
-                    <input 
-                    type="text" 
-                    name="email"
-                    placeholder="Email" 
-                    value={email}
-                    onChange={e => emailCheck(e)}
-                    onBlur={() => setEmailTouched(true)}
+                    <input
+                        type="text"
+                        name="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={e => emailCheck(e)}
+                        onBlur={() => setEmailTouched(true)}
                     />
-                    <input 
-                    type="text" 
-                    placeholder="Phone"
-                    name="phone"
-                    value={phone}
-                    onChange={e => phoneCheck(e)}
-                    onBlur={() => setPhoneTouched(true)}
+                    <input
+                        type="text"
+                        placeholder="Phone"
+                        name="phone"
+                        value={phone}
+                        onChange={e => phoneCheck(e)}
+                        onBlur={() => setPhoneTouched(true)}
                     />
                 </label>
                 {emailTouched && emailError && <div className="error">{emailError}</div>}
                 {phoneTouched && phoneError && <div className="error">{phoneError}</div>}
-                <label>
+                <label className="block">
                     <input
-                    type="password"
-                    name='password'
-                    placeholder="Password" 
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
+                        type={passwordShown ? "text" : "password"}
+                        name='password'
+                        placeholder="Password"
+                        value={password}
+                        onChange={e => passwordCheck(e)}
+                        onBlur={() => setPasswordTouched(true)}
                     />
-                    <div 
-                    className={password? 'reset' : 'display-none'}
-                    onClick={()=> clearPassword()}
+                    <div
+                        className='reset'
+                        onClick={() => togglePassword()}
                     >12</div>
                 </label>
+                {passwordTouched && passwordError && <div className="error">{passwordError}</div>}
                 <label>
                     <span>
                         <input type="checkbox" />
@@ -123,7 +148,7 @@ const Form = () => {
                     </span>
                 </label>
                 <label>
-                    <input className="buttons" type='reset' value="Reset" />
+                    <input className="buttons" type='reset' value="Reset"  onClick={() => reset()}/>
                     <input className="buttons" type='submit' value="Submit" onClick={(e) => e.preventDefault()} />
                 </label>
             </form>

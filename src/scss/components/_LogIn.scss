@@ -1,0 +1,55 @@
+.mainBlock{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    &>label{
+        color: $whit;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    &-log{
+        height: 45px;
+        width: 95%;
+        padding: 0 15px 0;
+        outline: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 500;       
+    }
+}
+.button{
+    height: 45px;
+    width: 45%;
+    padding: 0 15px 0;
+    outline: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600 !important;
+    background-color: $whit;
+    cursor: pointer;
+}
+.split{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    margin-top: 15px;
+    padding: 0 10px 0;
+}
+.dispaly-none{
+    display: none;
+}
+.resetb{
+    cursor: pointer;
+    margin-right: 5px;
+}
+.flexSplit{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+.mt{
+    margin-top: 25px;
+}

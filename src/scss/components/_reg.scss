@@ -19,6 +19,7 @@
             justify-content: space-between;
             padding: 0 35px 0;
             margin-bottom: 15px;
+            align-items: center;
             &>input{
                 height: 45px;
                 width: 45%;
@@ -70,11 +71,11 @@
     font-weight: 600;
 }
 .reset{
-    position: absolute;
-    margin-left: 265px;
-    margin-top: 11px;
-    cursor: pointer;
+ margin-left: 15px;
 }
 .display-none{
     display: none !important;
+}
+.block{
+    justify-content: initial !important;
 }
