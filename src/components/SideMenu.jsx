@@ -15,11 +15,10 @@ const SideMenu = () => {
     function Test() {
         dispatch(setFilterPrice({min: 0, max: 100}))
     } 
-    function Try() {
-        dispatch(setFilterVolume(0.33))
+    function Try(oleg) {
+        dispatch(setFilterVolume(oleg))
     } 
 
-    console.log(price)
     return (
         <>
             <div className="content-leftblock">
@@ -85,8 +84,8 @@ const SideMenu = () => {
                     <div className={isOpen ? 'acc open' : 'acc'}>
                         <div className="content-leftblock-Filter-box">
                             <p className="chebox">
-                                <input type="checkbox" id="1"
-                                    onChange = { () => Try()}
+                                <input type="checkbox"
+                                    onChange = {() => Try(0.33)}
                                 />
                                 <label htmlFor="1">0.33</label>
                             </p>
@@ -94,7 +93,9 @@ const SideMenu = () => {
                         </div>
                         <div className="content-leftblock-Filter-box">
                             <p className="chebox">
-                                <input type="checkbox" id="2" />
+                                <input type="checkbox" 
+                                 onChange = {() => Try(0.5)}      
+                                />
                                 <label htmlFor="2">0.5</label>
                             </p>
                             <span>5</span>

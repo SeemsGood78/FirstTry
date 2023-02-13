@@ -43,6 +43,9 @@
 .resetb{
     cursor: pointer;
     margin-right: 5px;
+    height: 33px;
+    width: 33px;
+    margin-left: 10px;
 }
 .flexSplit{
     display: flex;
@@ -52,4 +55,10 @@
 }
 .mt{
     margin-top: 25px;
+}
+.notA{
+    width: 45%;
+    &>input{
+        width: 100% !important;
+    }
 }

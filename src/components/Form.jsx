@@ -69,7 +69,6 @@ const Form = () => {
     const onChangeHandler = (e, cap, Errors) => {
         const { name, value } = e.target;
         disableLatters(e, cap)
-
         if (value.length === 0) {
             Errors(`${name} can't be empty`)
         }
@@ -104,8 +103,8 @@ const Form = () => {
                         onBlur={() => setSurnameTouched(true)}
                     />
                 </label>
-                {surnameTouched && surnameError && <div className="error">{surnameError}</div>}
                 {nameTouched && nameError && <div className="error">{nameError}</div>}
+                {surnameTouched && surnameError && <div className="error">{surnameError}</div>}
                 <label>
                     <input
                         type="text"
@@ -135,10 +134,10 @@ const Form = () => {
                         onChange={e => passwordCheck(e)}
                         onBlur={() => setPasswordTouched(true)}
                     />
-                    <div
+                    <img src="https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/eye-3-xxl.png"
                         className='reset'
                         onClick={() => togglePassword()}
-                    >12</div>
+                    ></img>
                 </label>
                 {passwordTouched && passwordError && <div className="error">{passwordError}</div>}
                 <label>

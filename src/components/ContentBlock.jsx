@@ -9,10 +9,10 @@ import Skeleton from "./Skeleton";
 const categories = ['All', 'Wheat', 'IPA', 'Lager', 'Ale', 'Stout']
 const sortList = ['title', 'rating', 'price']
 
-const ContentBlock = ( ) => {
+const ContentBlock = () => {
     const dispatch = useDispatch()
     const { searchValue, categoryId, sortId, items, status, fromItem, toItem, filtredItems } = useSelector(state => state.sort)
-    const { minPrice, maxPrice, volume} = useSelector(state => state.filter)
+    const { minPrice, maxPrice, volume } = useSelector(state => state.filter)
 
 
     const getItems = async () => {
@@ -34,42 +34,41 @@ const ContentBlock = ( ) => {
     useEffect(() => {
         filterItems()
     }, [searchValue, minPrice, maxPrice, volume, items])
-    
+
     // optional
     if (status === 'error') {
         return (<h1>Error with getting data</h1>)
     }
 
     function filterItems() {
-        const res = 
-        items
-        .filter(item => (
-            item.title.toLowerCase().includes(searchValue.toLowerCase()) 
-            && item.price > minPrice 
-            && item.price < maxPrice
-            // && (volume !== undefined && item.volume === volume)
-        ))
-        .slice(fromItem, toItem)
+        const res =
+            items
+                .filter(item => {
+                    return item.title.toLowerCase().includes(searchValue.toLowerCase())
+                        && item.price > minPrice
+                        && item.price < maxPrice
+                        && (volume.length > 0 ? volume.includes(item.volume) : true)
+                })
+                .slice(fromItem, toItem)
         dispatch(setfiltredItems(res))
     }
-
 
     return (
         <>
             <div className="right-block">
                 <div className="right-block-grid">
-                    { status !== 'loaded' && 
+                    {status !== 'loaded' &&
                         [...Array(9)].map((_, idx) => (
                             <Skeleton key={idx} />
-                        ))                    
+                        ))
                     }
-                    { status === 'loaded' &&
+                    {status === 'loaded' &&
                         filtredItems.map((item, idx) => (
                             <ContentItem key={idx} item={item} />
                         ))
                     }
                 </div>
-               <Pagination />
+                <Pagination />
             </div>
         </>
     )

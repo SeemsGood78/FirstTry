@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 const LogIn = () => {
     const [password, setPassword] = useState('')
@@ -19,13 +20,13 @@ const LogIn = () => {
                     className='mainBlock-log'
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <div
+                <img src='https://raw.githubusercontent.com/SeemsGood78/FirstTry/main/src/assets/Icons/eye-3-xxl.png'
                     className='resetb'
                     onClick={() => togglePassword()}
-                >12</div>
+                ></img>
             </div>
             <div className='split'>
-                <input type="reset" className='button' value='Create account' />
+                <Link to={'/Reg'} className='notA'> <input type="reset" className='button' value='Create account' /></Link>
                 <input type="submit" className='button' value='Submit' />
             </div>
         </div>
